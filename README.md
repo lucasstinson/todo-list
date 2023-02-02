@@ -1,6 +1,6 @@
 # todo-list
 
-This an attempt at a Todo List which will incorporate the information learned thus far including OOP, IIFEs, Modules, & SOLID principles
+This an attempt at a Todo List which will incorporate the information learned thus far including OOP, IIFEs, Modules, & S.O.L.I.D principles
 
 ### The Todo List
 
