@@ -1,6 +1,6 @@
 # todo-list
 
-This an attempt at a Todo List which will incorporate the information learned thus far including OOP, IIFEs, Modules, & S.O.L.I.D principles
+This Todo List which will incorporate the information learned thus far including OOP, IIFEs, Modules, & S.O.L.I.D principles
 
 ### The Todo List
 
@@ -24,19 +24,19 @@ Before diving into the code, take a minute to think about how you are going to w
 
    1. view all projects
 
-   2. view all todos in each project (probably just the title and duedate... perhaps changing color for different priorities)
+   1. view all todos in each project (probably just the title and duedate... perhaps changing color for different priorities)
 
-   3. expand a single todo to see/edit its details
+   1. expand a single todo to see/edit its details
 
-   4. delete a todo
+   1. delete a todo
 
 1. For inspiration, check out the following great todo apps. (look at screenshots, watch their introduction videos etc.)
 
    1. [Todoist](https://en.todoist.com/)
 
-   2. [Things](https://culturedcode.com/things/)
+   1. [Things](https://culturedcode.com/things/)
 
-   3. [any.do](https://www.any.do/)
+   1. [any.do](https://www.any.do/)
 
 1. Since you are probably already using webpack, adding external libraries from npm is a cinch! You might want to consider using the following useful library in your code:
 
