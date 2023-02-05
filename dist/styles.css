@@ -1,6 +1,11 @@
+form {
+  border: 1px solid red;
+}
+
 ul {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 li {
@@ -21,6 +26,7 @@ label {
 
 .priority-wrapper {
   display: flex;
+  align-items: center;
   gap: 10px;
 }
 
@@ -32,4 +38,24 @@ label {
 .add-button-wrapper {
   display: flex;
   justify-content: center;
+}
+
+.high-priority {
+  background-color: rgb(255, 67, 67);
+}
+
+.medium-priority {
+  background-color: rgb(255, 188, 62);
+}
+
+.low-priority {
+  background-color: rgb(61, 131, 61);
+}
+
+button {
+  padding: 8px 16px;
+  border-radius: 5px;
+  border: none;
+  /* background-color: rebeccapurple; */
+  font-weight: 700;
 }

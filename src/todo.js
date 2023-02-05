@@ -1,4 +1,4 @@
-export { todo, todoForm };
+export { todo, todoForm, preventSubmission };
 const todo = () => {
   let todo = {
     title: "",
@@ -42,6 +42,7 @@ const todoForm = () => {
   let titleInput = document.createElement("input");
   titleInput.type = "text";
   titleInput.name = "title";
+  titleInput.id = "title";
   titleLabel.appendChild(titleInput);
 
   let descriptionLabel = document.createElement("label");
@@ -51,6 +52,7 @@ const todoForm = () => {
   let descriptionInput = document.createElement("input");
   descriptionInput.type = "text";
   descriptionInput.name = "description";
+  descriptionInput.id = "description";
   descriptionLabel.appendChild(descriptionInput);
 
   let dueDateLabel = document.createElement("label");
@@ -59,7 +61,8 @@ const todoForm = () => {
 
   let dueDateInput = document.createElement("input");
   dueDateInput.type = "date";
-  dueDateInput.name = "dueDate";
+  dueDateInput.name = "due-date";
+  dueDateInput.id = "due-date";
   dueDateLabel.appendChild(dueDateInput);
 
   let priorityWrapper = document.createElement("div");
@@ -78,16 +81,19 @@ const todoForm = () => {
   let optionOne = document.createElement("button");
   optionOne.classList = "high-priority";
   optionOne.textContent = "High";
+  optionOne.addEventListener("click", preventSubmission);
   optionWrapper.appendChild(optionOne);
 
   let optionTwo = document.createElement("button");
   optionTwo.classList = "medium-priority";
   optionTwo.textContent = "Medium";
+  optionTwo.addEventListener("click", preventSubmission);
   optionWrapper.appendChild(optionTwo);
 
   let optionThree = document.createElement("button");
   optionThree.classList = "low-priority";
   optionThree.textContent = "Low";
+  optionThree.addEventListener("click", preventSubmission);
   optionWrapper.appendChild(optionThree);
 
   let addButtonWrapper = document.createElement("div");
@@ -97,7 +103,12 @@ const todoForm = () => {
   let addButton = document.createElement("button");
   addButton.classList = "add-todo";
   addButton.textContent = "ADD";
+  addButton.addEventListener("click", preventSubmission);
   addButtonWrapper.appendChild(addButton);
+};
+
+const preventSubmission = (e) => {
+  e.preventDefault();
 };
 
 const addTodo = () => {};
