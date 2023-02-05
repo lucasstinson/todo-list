@@ -43,6 +43,8 @@ const todoForm = () => {
   titleInput.type = "text";
   titleInput.name = "title";
   titleInput.id = "title";
+  titleInput.required = true;
+  titleInput.minLength = "1";
   titleLabel.appendChild(titleInput);
 
   let descriptionLabel = document.createElement("label");
@@ -69,31 +71,30 @@ const todoForm = () => {
   priorityWrapper.classList = "priority-wrapper";
   fourthli.appendChild(priorityWrapper);
 
-  let priorityTitle = document.createElement("div");
-  priorityTitle.classList = "priority-label";
-  priorityTitle.textContent = "Priority:";
-  priorityWrapper.appendChild(priorityTitle);
-
   let optionWrapper = document.createElement("div");
   optionWrapper.classList = "option-wrapper";
+  optionWrapper.textContent = "Priority:";
   priorityWrapper.appendChild(optionWrapper);
 
-  let optionOne = document.createElement("button");
-  optionOne.classList = "high-priority";
-  optionOne.textContent = "High";
-  optionOne.addEventListener("click", preventSubmission);
+  let optionOne = document.createElement("input");
+  optionOne.setAttribute("type", "radio");
+  optionOne.name = "priority-option";
+  optionOne.id = "high-priority";
+  optionOne.value = "High";
   optionWrapper.appendChild(optionOne);
 
-  let optionTwo = document.createElement("button");
-  optionTwo.classList = "medium-priority";
-  optionTwo.textContent = "Medium";
-  optionTwo.addEventListener("click", preventSubmission);
+  let optionTwo = document.createElement("input");
+  optionTwo.setAttribute("type", "radio");
+  optionTwo.name = "priority-option";
+  optionTwo.id = "medium-priority";
+  optionTwo.value = "medium";
   optionWrapper.appendChild(optionTwo);
 
-  let optionThree = document.createElement("button");
-  optionThree.classList = "low-priority";
-  optionThree.textContent = "Low";
-  optionThree.addEventListener("click", preventSubmission);
+  let optionThree = document.createElement("input");
+  optionThree.setAttribute("type", "radio");
+  optionThree.name = "priority-option";
+  optionThree.id = "low-priority";
+  optionThree.value = "low";
   optionWrapper.appendChild(optionThree);
 
   let addButtonWrapper = document.createElement("div");
@@ -101,9 +102,10 @@ const todoForm = () => {
   form.appendChild(addButtonWrapper);
 
   let addButton = document.createElement("button");
-  addButton.classList = "add-todo";
+  addButton.id = "add-todo";
   addButton.textContent = "ADD";
   addButton.addEventListener("click", preventSubmission);
+  addButton.addEventListener("click", addTodo);
   addButtonWrapper.appendChild(addButton);
 };
 
@@ -111,4 +113,12 @@ const preventSubmission = (e) => {
   e.preventDefault();
 };
 
-const addTodo = () => {};
+const addTodo = (e) => {
+  let domForm = e.target.parentElement.parentElement;
+  let titleTest = domForm[0].value;
+  let descriptionTest = domForm[1].value;
+  let dueDateTest = domForm[2].value;
+  console.table(titleTest, descriptionTest, dueDateTest);
+};
+
+// addButton.addEventListener("click", conosole.log(e));

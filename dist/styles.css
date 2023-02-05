@@ -41,19 +41,19 @@ label {
   justify-content: center;
 }
 
-.high-priority {
+#high-priority {
   background-color: rgb(255, 67, 67);
 }
 
-.medium-priority {
+#medium-priority {
   background-color: rgb(255, 188, 62);
 }
 
-.low-priority {
+#low-priority {
   background-color: rgb(61, 131, 61);
 }
 
-.add-todo {
+#add-todo {
   background-color: blue;
 }
 
