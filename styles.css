@@ -1,16 +1,17 @@
 form {
   border: 1px solid red;
+  padding: 24px;
 }
 
 ul {
   display: flex;
+  padding: 0;
   justify-content: space-between;
   align-items: center;
 }
 
 li {
   list-style-type: none;
-  padding: 24px;
 }
 
 label {
@@ -52,10 +53,13 @@ label {
   background-color: rgb(61, 131, 61);
 }
 
+.add-button {
+  background-color: blue;
+}
+
 button {
   padding: 8px 16px;
   border-radius: 5px;
   border: none;
-  /* background-color: rebeccapurple; */
   font-weight: 700;
 }
