@@ -5,10 +5,31 @@ ul {
 
 li {
   list-style-type: none;
+  padding: 24px;
+}
+
+label {
+  display: flex;
+  gap: 10px;
 }
 
 .button-wrapper {
   display: flex;
   justify-content: center;
   gap: 50px;
+}
+
+.priority-wrapper {
+  display: flex;
+  gap: 10px;
+}
+
+.option-wrapper {
+  display: flex;
+  gap: 20px;
+}
+
+.add-button-wrapper {
+  display: flex;
+  justify-content: center;
 }
