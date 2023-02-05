@@ -1,3 +1,7 @@
+html {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
 form {
   border: 1px solid red;
   padding: 24px;
@@ -12,17 +16,12 @@ ul {
 
 li {
   list-style-type: none;
-}
-
-label {
   display: flex;
   gap: 10px;
 }
 
-.button-wrapper {
-  display: flex;
-  justify-content: center;
-  gap: 50px;
+label {
+  font-weight: 700;
 }
 
 .priority-wrapper {
@@ -31,35 +30,97 @@ label {
   gap: 10px;
 }
 
-.option-wrapper {
-  display: flex;
-  gap: 20px;
-}
-
 .add-button-wrapper {
   display: flex;
   justify-content: center;
 }
 
-#high-priority {
+.option-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+}
+
+.option-wrapper input {
+  display: none;
+}
+
+.option-wrapper label:hover {
+  cursor: pointer;
+}
+
+.option-wrapper input:checked + label {
+  background-color: #a5dc86;
+  box-shadow: none;
+}
+
+.option-wrapper .option-one-label {
+  color: rgb(255, 67, 67);
+  font-size: 14px;
+  line-height: 1;
+  text-align: center;
+  padding: 8px 16px;
+  border: 1px solid rgb(255, 67, 67);
+  border-radius: 5px;
+  transition: all 0.2s;
+}
+
+.option-wrapper input:checked + .option-one-label,
+.option-wrapper input:hover + .option-one-label {
   background-color: rgb(255, 67, 67);
+  color: white;
+  box-shadow: none;
 }
 
-#medium-priority {
+.option-wrapper .option-two-label {
+  color: rgb(255, 188, 62);
+  font-size: 14px;
+  line-height: 1;
+  text-align: center;
+  padding: 8px 16px;
+  border: 1px solid rgb(255, 188, 62);
+  border-radius: 5px;
+  transition: all 0.2s;
+}
+
+.option-wrapper input:checked + .option-two-label,
+.option-wrapper input:hover + .option-two-label {
   background-color: rgb(255, 188, 62);
+  color: white;
+  box-shadow: none;
 }
 
-#low-priority {
+.option-wrapper .option-three-label {
+  color: rgb(61, 131, 61);
+  font-size: 14px;
+  line-height: 1;
+  text-align: center;
+  padding: 8px 16px;
+  border: 1px solid rgb(61, 131, 61);
+  border-radius: 5px;
+  transition: all 0.2s;
+}
+
+.option-wrapper input:checked + .option-three-label,
+.option-wrapper input:hover + .option-three-label {
   background-color: rgb(61, 131, 61);
+  color: white;
+  box-shadow: none;
 }
 
 #add-todo {
-  background-color: blue;
-}
-
-button {
+  border: 1px solid blue;
+  font-size: 16px;
   padding: 8px 16px;
   border-radius: 5px;
-  border: none;
+  background-color: transparent;
   font-weight: 700;
+  color: blue;
+}
+
+#add-todo:hover {
+  background-color: blue;
+  color: white;
+  transition: all 0.2s;
 }
