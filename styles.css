@@ -2,6 +2,48 @@ html {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+#search-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+
+.search-bar-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+.search-bar-wrapper:hover {
+  box-shadow: 0 1px 6px rgba(32, 33, 36, 0.28);
+}
+
+.magnifying-glass {
+  padding: 6px;
+}
+
+.magnifying-glass:hover {
+  background-color: lightblue;
+  border-radius: 10px 0px 0px 10px;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+#search-todo {
+  border: none;
+}
+
+#search-todo:hover {
+  cursor: pointer;
+}
+
+#search-todo:focus {
+  outline: none;
+}
+
 form {
   border: 1px solid red;
   padding: 24px;
@@ -30,9 +72,10 @@ label {
   gap: 10px;
 }
 
-.add-button-wrapper {
-  display: flex;
-  justify-content: center;
+#title:hover,
+#description:hover,
+#dueDate:hover {
+  box-shadow: 0 1px 6px rgba(32, 33, 36, 0.28);
 }
 
 .option-wrapper {
@@ -119,8 +162,14 @@ label {
   color: blue;
 }
 
+.add-button-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
 #add-todo:hover {
   background-color: blue;
   color: white;
   transition: all 0.2s;
+  cursor: pointer;
 }
