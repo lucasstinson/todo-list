@@ -1,4 +1,4 @@
-import { todoForm, todo, preventSubmission } from "./todo.js";
+import { todoForm, todo } from "./todo.js";
 import { createNavBar } from "./navBar.js";
 
 createNavBar();

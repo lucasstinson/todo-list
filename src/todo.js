@@ -1,4 +1,5 @@
-export { todo, todoForm, preventSubmission };
+export { todo, todoForm };
+import { preventSubmission } from "./tools.js";
 const todo = () => {
   let todo = {
     title: "",
@@ -14,8 +15,6 @@ const todoForm = () => {
   let form = document.createElement("form");
   form.id = "to-do-form";
 
-  // Make sure to adjust this
-  // Make sure to adjust this
   // Make sure to adjust this
   // Make sure to adjust this
   document.querySelector("body").appendChild(form);
@@ -126,10 +125,6 @@ const todoForm = () => {
   addButton.addEventListener("click", preventSubmission);
   addButton.addEventListener("click", addTodo);
   addButtonWrapper.appendChild(addButton);
-};
-
-const preventSubmission = (e) => {
-  e.preventDefault();
 };
 
 const addTodo = (e) => {
