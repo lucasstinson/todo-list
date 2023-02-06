@@ -12,7 +12,7 @@ const todo = () => {
 
 const todoForm = () => {
   let form = document.createElement("form");
-  form.id = "todo";
+  form.id = "to-do-form";
 
   // Make sure to adjust this
   // Make sure to adjust this

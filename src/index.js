@@ -1,18 +1,11 @@
 import { todoForm, todo, preventSubmission } from "./todo.js";
+import { createNavBar } from "./navBar.js";
 
-// let todo = {
-//   title: "Cook",
-//   description: "Need to make Steak",
-//   dueDate: "02/04/2023",
-//   priority: "urgent",
-// };
-
+createNavBar();
 todoForm();
-// TO DO ITEM SHOULD CONTAIN
-// title
-// description
-// dueDate
-// priority
+// TO do form should contain
+// title, description, dueDate, priority
+// DONE
 
 // PROJECTS
 // default project on launch, but allow for new projects
@@ -32,3 +25,10 @@ todoForm();
 // OPTIONAL
 // notes
 // checklists
+
+// let todo = {
+//   title: "Cook",
+//   description: "Need to make Steak",
+//   dueDate: "02/04/2023",
+//   priority: "urgent",
+// };
