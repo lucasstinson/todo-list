@@ -62,6 +62,20 @@ const createSideBar = () => {
   projects.textContent = "Projects";
   projectsWrapper.appendChild(projects);
 
+  const projectWrapper = document.createElement("div");
+  projectWrapper.classList = "project-wrapper";
+  sideBar.appendChild(projectWrapper);
+
+  const projectImage = document.createElement("img");
+  projectImage.classList = "project-image";
+  projectImage.src = "../dist/images/project.png";
+  projectWrapper.appendChild(projectImage);
+
+  const newProject = document.createElement("div");
+  newProject.classList = "new-project";
+  newProject.textContent = "New Project";
+  projectWrapper.appendChild(newProject);
+
   // All
   // Today
   // Upcoming

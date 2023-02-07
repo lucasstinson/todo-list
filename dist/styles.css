@@ -75,29 +75,39 @@ body {
 }
 
 #to-do-form {
-  /* margin-right: 10px; */
+  margin: 10px;
   grid-column: 2;
 }
 
 .all-todo-wrapper,
 .today-todo-wrapper,
 .upcoming-todo-wrapper,
-.projects-wrapper {
+.projects-wrapper,
+.project-wrapper {
   display: flex;
   align-items: center;
   padding: 15px;
   gap: 20px;
 }
 
+.project-wrapper {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  padding-left: 30px;
+  gap: 20px;
+}
+
 .all-todo-image,
 .today-todo-image,
 .upcoming-todo-image,
-.projects-image {
-  height: 30px;
+.projects-image,
+.project-image {
+  height: 28px;
   width: auto;
 }
 
-form {
+.projects-wrapper form {
   /* border: 1px solid red; */
   padding: 24px;
 }
