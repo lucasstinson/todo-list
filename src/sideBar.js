@@ -47,6 +47,21 @@ const createSideBar = () => {
   upcomingTodos.classList = "upcoming-todo-items";
   upcomingTodos.textContent = "Upcoming";
   upcomingTodoWrapper.appendChild(upcomingTodos);
+
+  const projectsWrapper = document.createElement("div");
+  projectsWrapper.classList = "projects-wrapper";
+  sideBar.appendChild(projectsWrapper);
+
+  const projectsImage = document.createElement("img");
+  projectsImage.classList = "projects-image";
+  projectsImage.src = "../dist/images/projects.png";
+  projectsWrapper.appendChild(projectsImage);
+
+  const projects = document.createElement("div");
+  projects.classList = "projects-items";
+  projects.textContent = "Projects";
+  projectsWrapper.appendChild(projects);
+
   // All
   // Today
   // Upcoming
