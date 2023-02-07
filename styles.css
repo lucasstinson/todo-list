@@ -9,7 +9,7 @@ body {
   margin: 0;
   padding: 0;
   height: 100vh;
-  grid-template-columns: 1fr 7fr;
+  grid-template-columns: minmax(250px, 1fr) 7fr;
 }
 
 .search-container {
@@ -44,9 +44,8 @@ body {
 }
 
 .magnifying-glass:hover {
-  background-color: lightblue;
+  background-color: #ffff88;
   border-radius: 10px 0px 0px 10px;
-  /* transition: all 0.2s; */
   cursor: pointer;
 }
 
@@ -66,12 +65,13 @@ body {
   display: grid;
   justify-content: center;
   align-content: start;
-  /* padding-left: 30px; */
   background-color: #fafafa;
   /* background-color: #ebebeb; */
+  margin-top: 10px;
   grid-row: 2;
   height: calc(100vh - 60px);
   grid-column: 1;
+  gap: 5px;
 }
 
 #to-do-form {
@@ -90,12 +90,15 @@ body {
   gap: 20px;
 }
 
-.project-wrapper {
-  display: flex;
-  align-items: center;
-  padding: 15px;
-  padding-left: 30px;
-  gap: 20px;
+.all-todo-wrapper:hover,
+.today-todo-wrapper:hover,
+.upcoming-todo-wrapper:hover,
+.projects-wrapper:hover,
+.project-wrapper:hover {
+  background-color: rgb(128, 128, 128, 0.3);
+  border-radius: 10px;
+  transition: all 0.2s;
+  cursor: pointer;
 }
 
 .all-todo-image,
@@ -107,9 +110,12 @@ body {
   width: auto;
 }
 
-.projects-wrapper form {
-  /* border: 1px solid red; */
-  padding: 24px;
+.project-wrapper {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  margin-left: 15px;
+  gap: 20px;
 }
 
 ul {
@@ -140,6 +146,7 @@ label {
 #due-date:hover {
   box-shadow: 0 1px 6px rgba(32, 33, 36, 0.3);
   transition: all 0.2s;
+  cursor: pointer;
 }
 
 .option-wrapper {
