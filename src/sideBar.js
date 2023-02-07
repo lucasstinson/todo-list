@@ -1,4 +1,4 @@
-export { createSideBar };
+export { createSideBar, addProject };
 
 const createSideBar = () => {
   const sideBar = document.createElement("div");
@@ -52,6 +52,12 @@ const createSideBar = () => {
   projectsWrapper.classList = "projects-wrapper";
   sideBar.appendChild(projectsWrapper);
 
+  const expandArrow = document.createElement("div");
+  expandArrow.classList = "expand-arrow";
+  expandArrow.textContent = "⮟";
+  // expandArrow.addEventListener("click", shrinkProjects);
+  projectsWrapper.appendChild(expandArrow);
+
   const projectsImage = document.createElement("img");
   projectsImage.classList = "projects-image";
   projectsImage.src = "../dist/images/projects.png";
@@ -61,6 +67,12 @@ const createSideBar = () => {
   projects.classList = "projects-items";
   projects.textContent = "Projects";
   projectsWrapper.appendChild(projects);
+
+  const addProjects = document.createElement("div");
+  addProjects.classList = "projects-add";
+  addProjects.textContent = "+";
+  addProjects.addEventListener("click", addProject);
+  projectsWrapper.appendChild(addProjects);
 
   const projectWrapper = document.createElement("div");
   projectWrapper.classList = "project-wrapper";
@@ -75,29 +87,21 @@ const createSideBar = () => {
   newProject.classList = "new-project";
   newProject.textContent = "New Project";
   projectWrapper.appendChild(newProject);
-
-  // All
-  // Today
-  // Upcoming
-  // ---------
-  // Projects
-  // First Project
 };
 
-// const createNewProject = () => {
-//   const projectWrapper = document.createElement("div");
-//   projectWrapper.classList = "project-wrapper";
-//   sideBar.appendChild(projectWrapper);
+const addProject = () => {
+  const sideBar = document.querySelector(".side-bar-wrapper");
+  const projectWrapper = document.createElement("div");
+  projectWrapper.classList = "project-wrapper";
+  sideBar.appendChild(projectWrapper);
 
-//   const projectImage = document.createElement("img");
-//   projectImage.classList = "project-image";
-//   projectImage.src = "../dist/images/project.png";
-//   projectWrapper.appendChild(projectImage);
+  const projectImage = document.createElement("img");
+  projectImage.classList = "project-image";
+  projectImage.src = "../dist/images/project.png";
+  projectWrapper.appendChild(projectImage);
 
-//   const newProject = document.createElement("div");
-//   newProject.classList = "new-project";
-//   newProject.textContent = "New Project";
-//   projectWrapper.appendChild(newProject);
-// };
-
-// createNewProject();
+  const newProject = document.createElement("div");
+  newProject.classList = "new-project";
+  newProject.textContent = "New Project";
+  projectWrapper.appendChild(newProject);
+};
