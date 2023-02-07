@@ -9,11 +9,12 @@ body {
   margin: 0;
   padding: 0;
   height: 100vh;
-  grid-template-columns: 1fr 8fr;
+  grid-template-columns: 1fr 7fr;
 }
 
 .search-container {
-  background-color: #a5f3fc;
+  /* background-color: #ffff88; */
+  background-color: #74e77c;
   grid-column: 1 / 3;
 }
 
@@ -34,7 +35,8 @@ body {
 }
 
 .search-bar-wrapper:hover {
-  box-shadow: 0 1px 6px rgba(32, 33, 36, 0.28);
+  box-shadow: 0 1px 6px rgba(32, 33, 36, 0.7);
+  transition: all 0.2s;
 }
 
 .magnifying-glass {
@@ -62,11 +64,11 @@ body {
 
 .side-bar-wrapper {
   display: grid;
-  /* justify-content: center; */
+  justify-content: center;
   align-content: start;
-  padding-left: 50px;
-  /* background-color: #fafafa; */
-  background-color: #ebebeb;
+  /* padding-left: 30px; */
+  background-color: #fafafa;
+  /* background-color: #ebebeb; */
   grid-row: 2;
   height: calc(100vh - 60px);
   grid-column: 1;
@@ -96,7 +98,7 @@ body {
 }
 
 form {
-  border: 1px solid red;
+  /* border: 1px solid red; */
   padding: 24px;
 }
 
@@ -125,8 +127,9 @@ label {
 
 #title:hover,
 #description:hover,
-#dueDate:hover {
-  box-shadow: 0 1px 6px rgba(32, 33, 36, 0.28);
+#due-date:hover {
+  box-shadow: 0 1px 6px rgba(32, 33, 36, 0.3);
+  transition: all 0.2s;
 }
 
 .option-wrapper {
