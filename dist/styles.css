@@ -1,5 +1,26 @@
-html {
+/* html {
   font-family: Arial, Helvetica, sans-serif;
+  box-sizing: border-box;
+  height: 100vh;
+}
+
+body {
+} */
+
+.all-todo-wrapper,
+.today-todo-wrapper,
+.upcoming-todo-wrapper {
+  display: flex;
+  /* justify-content: center; */
+  padding: 15px;
+  gap: 20px;
+}
+
+.all-todo-image,
+.today-todo-image,
+.upcoming-todo-image {
+  height: 20px;
+  width: auto;
 }
 
 #search-form {

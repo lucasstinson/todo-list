@@ -134,9 +134,9 @@ const addTodo = (e) => {
   let descriptionTest = domForm[1].value;
   let dueDateTest = domForm[2].value;
   let priorityTest = document.querySelector('input[type="radio"]:checked');
-  // if (priorityTest != null) {
-  //   priorityTest = document.querySelector('input[type="radio"]:checked');
-  // }
+  if (priorityTest == null) {
+    priorityTest = "";
+  }
   console.table(titleTest, descriptionTest, dueDateTest, priorityTest.value);
 };
 

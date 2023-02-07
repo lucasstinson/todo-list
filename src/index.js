@@ -1,7 +1,9 @@
 import { todoForm, todo } from "./todo.js";
-import { createNavBar } from "./navBar.js";
+import { createSearchBar } from "./searchBar.js";
+import { createSideBar } from "./sideBar.js";
 
-createNavBar();
+createSearchBar();
+createSideBar();
 todoForm();
 // TO do form should contain
 // title, description, dueDate, priority

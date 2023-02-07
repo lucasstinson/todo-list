@@ -1,14 +1,14 @@
 import { enterKeyPressed } from "./tools.js";
 
-const createNavBar = () => {
-  let navBar = document.createElement("nav");
-  navBar.classList = "nav-bar-wrapper";
+const createSearchBar = () => {
+  let searchContainer = document.createElement("div");
+  searchContainer.classList = "search-container";
 
-  document.querySelector("body").appendChild(navBar);
+  document.querySelector("body").appendChild(searchContainer);
 
   let form = document.createElement("form");
   form.id = "search-form";
-  navBar.appendChild(form);
+  searchContainer.appendChild(form);
 
   let searchBarWrapper = document.createElement("div");
   searchBarWrapper.classList = "search-bar-wrapper";
@@ -28,4 +28,4 @@ const createNavBar = () => {
   searchBarWrapper.appendChild(searchInput);
 };
 
-export { createNavBar };
+export { createSearchBar };
