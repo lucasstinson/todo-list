@@ -19,8 +19,12 @@ const todoForm = () => {
   // Make sure to adjust this
   document.querySelector("body").appendChild(form);
 
+  let todoWrapper = document.createElement("div");
+  todoWrapper.classList = "todo-wrapper";
+  form.appendChild(todoWrapper);
+
   let ul = document.createElement("ul");
-  form.appendChild(ul);
+  todoWrapper.appendChild(ul);
 
   let firstli = document.createElement("li");
   ul.appendChild(firstli);
@@ -86,7 +90,6 @@ const todoForm = () => {
   optionOneLabel.setAttribute("for", "high-priority");
   optionOneLabel.textContent = "High";
   optionOneLabel.classList = "option-one-label";
-
   optionWrapper.appendChild(optionOneLabel);
 
   let optionTwo = document.createElement("input");
@@ -117,7 +120,7 @@ const todoForm = () => {
 
   let addButtonWrapper = document.createElement("div");
   addButtonWrapper.classList = "add-button-wrapper";
-  form.appendChild(addButtonWrapper);
+  todoWrapper.appendChild(addButtonWrapper);
 
   let addButton = document.createElement("button");
   addButton.id = "add-todo";

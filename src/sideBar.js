@@ -1,13 +1,17 @@
 export { createSideBar, addProject };
 
+const body = document.querySelector("body");
+
 const createSideBar = () => {
   const sideBar = document.createElement("div");
   sideBar.classList = "side-bar-wrapper";
 
-  document.querySelector("body").appendChild(sideBar);
+  body.appendChild(sideBar);
 
   const allTodoWrapper = document.createElement("div");
-  allTodoWrapper.classList = "all-todo-wrapper";
+  allTodoWrapper.classList = "category";
+  allTodoWrapper.id = "all-todo-wrapper";
+  allTodoWrapper.addEventListener("click", toggleSelected);
   sideBar.appendChild(allTodoWrapper);
 
   const allTodoImage = document.createElement("img");
@@ -21,7 +25,9 @@ const createSideBar = () => {
   allTodoWrapper.appendChild(allTodos);
 
   const todayTodoWrapper = document.createElement("div");
-  todayTodoWrapper.classList = "today-todo-wrapper";
+  todayTodoWrapper.classList = "category";
+  todayTodoWrapper.id = "today-todo-wrapper";
+  todayTodoWrapper.addEventListener("click", toggleSelected);
   sideBar.appendChild(todayTodoWrapper);
 
   const todayTodoImage = document.createElement("img");
@@ -35,7 +41,9 @@ const createSideBar = () => {
   todayTodoWrapper.appendChild(todayTodos);
 
   const upcomingTodoWrapper = document.createElement("div");
-  upcomingTodoWrapper.classList = "upcoming-todo-wrapper";
+  upcomingTodoWrapper.classList = "category";
+  upcomingTodoWrapper.id = "upcoming-todo-wrapper";
+  upcomingTodoWrapper.addEventListener("click", toggleSelected);
   sideBar.appendChild(upcomingTodoWrapper);
 
   const upcomingTodoImage = document.createElement("img");
@@ -83,7 +91,10 @@ const createSideBar = () => {
   sideBar.appendChild(newProjectWrapper);
 
   const projectWrapper = document.createElement("div");
-  projectWrapper.classList = "project-wrapper";
+  projectWrapper.classList = "category";
+  projectWrapper.id = "project-wrapper";
+  projectWrapper.dataset.project = "0";
+  projectWrapper.addEventListener("click", toggleSelected);
   newProjectWrapper.appendChild(projectWrapper);
 
   const projectImage = document.createElement("img");
@@ -100,7 +111,10 @@ const createSideBar = () => {
 const addProject = () => {
   const newProjectWrapper = document.querySelector(".new-project-wrapper");
   const projectWrapper = document.createElement("div");
-  projectWrapper.classList = "project-wrapper";
+  projectWrapper.classList = "category";
+  projectWrapper.id = "project-wrapper";
+  projectWrapper.dataset.project = "0";
+  projectWrapper.addEventListener("click", toggleSelected);
   newProjectWrapper.appendChild(projectWrapper);
 
   const projectImage = document.createElement("img");
@@ -128,3 +142,24 @@ const adjustProjects = () => {
     addProjects.style.visibility = "visible";
   }
 };
+
+const toggleSelected = (e) => {
+  const active = document.querySelector(".side-bar-wrapper .category.active");
+  if (active == null) {
+    if (e.target.parentNode.className === "category") {
+      e.target.parentNode.className += " active";
+    } else if (e.target.className === "category") {
+      e.target.className += " active";
+    }
+  } else if (active != null) {
+    active.classList.remove("active");
+    if (e.target.parentNode.className === "category") {
+      e.target.parentNode.className += " active";
+    } else if (e.target.className === "category") {
+      e.target.className += " active";
+    }
+  }
+};
+
+toggleSelected;
+toggleSelected;
