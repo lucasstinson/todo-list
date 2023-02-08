@@ -1,6 +1,7 @@
 html {
   font-family: Arial, Helvetica, sans-serif;
   box-sizing: border-box;
+  overflow: hidden;
 }
 
 body {
@@ -160,7 +161,7 @@ body {
 
 .todo-wrapper:hover {
   /* border: 1px solid green; */
-  background-color: rgb(128, 128, 128, 0.2);
+  background-color: rgb(128, 128, 128, 0.15);
   transition: all 0.2s;
 }
 
