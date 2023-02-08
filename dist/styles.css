@@ -81,11 +81,18 @@ body {
 
 .all-todo-wrapper,
 .today-todo-wrapper,
-.upcoming-todo-wrapper,
-.projects-wrapper {
+.upcoming-todo-wrapper {
   display: flex;
   align-items: center;
   padding: 15px;
+  gap: 20px;
+  font-weight: 700;
+}
+
+.projects-wrapper {
+  display: flex;
+  align-items: center;
+  padding: 15px 15px 15px 10px;
   gap: 20px;
   font-weight: 700;
 }
@@ -120,7 +127,7 @@ body {
 }
 
 .expand-arrow {
-  padding: 10px 13px 0px 13px;
+  padding: 9px 12px 0px 12px;
 }
 
 .expand-arrow:hover {
