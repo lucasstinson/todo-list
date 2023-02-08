@@ -52,21 +52,25 @@ const createSideBar = () => {
   projectsWrapper.classList = "projects-wrapper";
   sideBar.appendChild(projectsWrapper);
 
+  const adjustableWrapper = document.createElement("div");
+  adjustableWrapper.classList = "adjustable-wrapper";
+  adjustableWrapper.addEventListener("click", adjustProjects);
+  projectsWrapper.appendChild(adjustableWrapper);
+
   const expandArrow = document.createElement("div");
   expandArrow.classList = "expand-arrow";
   expandArrow.textContent = "⮟";
-  // expandArrow.addEventListener("click", shrinkProjects);
-  projectsWrapper.appendChild(expandArrow);
+  adjustableWrapper.appendChild(expandArrow);
 
   const projectsImage = document.createElement("img");
   projectsImage.classList = "projects-image";
   projectsImage.src = "../dist/images/projects.png";
-  projectsWrapper.appendChild(projectsImage);
+  adjustableWrapper.appendChild(projectsImage);
 
   const projects = document.createElement("div");
   projects.classList = "projects-items";
   projects.textContent = "Projects";
-  projectsWrapper.appendChild(projects);
+  adjustableWrapper.appendChild(projects);
 
   const addProjects = document.createElement("div");
   addProjects.classList = "projects-add";
@@ -74,9 +78,13 @@ const createSideBar = () => {
   addProjects.addEventListener("click", addProject);
   projectsWrapper.appendChild(addProjects);
 
+  const newProjectWrapper = document.createElement("div");
+  newProjectWrapper.classList = "new-project-wrapper";
+  sideBar.appendChild(newProjectWrapper);
+
   const projectWrapper = document.createElement("div");
   projectWrapper.classList = "project-wrapper";
-  sideBar.appendChild(projectWrapper);
+  newProjectWrapper.appendChild(projectWrapper);
 
   const projectImage = document.createElement("img");
   projectImage.classList = "project-image";
@@ -90,10 +98,10 @@ const createSideBar = () => {
 };
 
 const addProject = () => {
-  const sideBar = document.querySelector(".side-bar-wrapper");
+  const newProjectWrapper = document.querySelector(".new-project-wrapper");
   const projectWrapper = document.createElement("div");
   projectWrapper.classList = "project-wrapper";
-  sideBar.appendChild(projectWrapper);
+  newProjectWrapper.appendChild(projectWrapper);
 
   const projectImage = document.createElement("img");
   projectImage.classList = "project-image";
@@ -106,6 +114,17 @@ const addProject = () => {
   projectWrapper.appendChild(newProject);
 };
 
-const expandProjects = () => {
-  // ⮞
+const adjustProjects = () => {
+  const expandArrow = document.querySelector(".expand-arrow");
+  const newProjectWrapper = document.querySelector(".new-project-wrapper");
+  const addProjects = document.querySelector(".projects-add");
+  if (expandArrow.textContent == "⮟") {
+    expandArrow.textContent = "⮞";
+    newProjectWrapper.style.visibility = "hidden";
+    addProjects.style.visibility = "hidden";
+  } else if (expandArrow.textContent == "⮞") {
+    expandArrow.textContent = "⮟";
+    newProjectWrapper.style.visibility = "visible";
+    addProjects.style.visibility = "visible";
+  }
 };
