@@ -105,3 +105,7 @@ const addProject = () => {
   newProject.textContent = "New Project";
   projectWrapper.appendChild(newProject);
 };
+
+const expandProjects = () => {
+  // ⮞
+};
