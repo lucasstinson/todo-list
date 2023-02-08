@@ -9,7 +9,7 @@ const createSideBar = () => {
   body.appendChild(sideBar);
 
   const allTodoWrapper = document.createElement("div");
-  allTodoWrapper.classList = "category";
+  allTodoWrapper.classList = "category active";
   allTodoWrapper.id = "all-todo-wrapper";
   allTodoWrapper.addEventListener("click", toggleSelected);
   sideBar.appendChild(allTodoWrapper);
@@ -145,19 +145,11 @@ const adjustProjects = () => {
 
 const toggleSelected = (e) => {
   const active = document.querySelector(".side-bar-wrapper .category.active");
-  if (active == null) {
-    if (e.target.parentNode.className === "category") {
-      e.target.parentNode.className += " active";
-    } else if (e.target.className === "category") {
-      e.target.className += " active";
-    }
-  } else if (active != null) {
-    active.classList.remove("active");
-    if (e.target.parentNode.className === "category") {
-      e.target.parentNode.className += " active";
-    } else if (e.target.className === "category") {
-      e.target.className += " active";
-    }
+  active.classList.remove("active");
+  if (e.target.parentNode.className === "category") {
+    e.target.parentNode.className += " active";
+  } else if (e.target.className === "category") {
+    e.target.className += " active";
   }
 };
 
