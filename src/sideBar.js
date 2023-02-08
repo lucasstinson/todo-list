@@ -146,12 +146,13 @@ const adjustProjects = () => {
 const toggleSelected = (e) => {
   const active = document.querySelector(".side-bar-wrapper .category.active");
   active.classList.remove("active");
+  addSelected(e);
+};
+
+const addSelected = (e) => {
   if (e.target.parentNode.className === "category") {
     e.target.parentNode.className += " active";
   } else if (e.target.className === "category") {
     e.target.className += " active";
   }
 };
-
-toggleSelected;
-toggleSelected;
