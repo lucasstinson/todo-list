@@ -1,5 +1,5 @@
 export { createSideBar, addProject };
-// import { setCategoryTitle } from "./taskManager.js";
+import { preventSubmission } from "./tools.js";
 
 const body = document.querySelector("body");
 
@@ -84,7 +84,7 @@ const createSideBar = () => {
   const addProjects = document.createElement("div");
   addProjects.classList = "projects-add";
   addProjects.textContent = "+";
-  addProjects.addEventListener("click", addProject);
+  addProjects.addEventListener("click", inputProjectName);
   projectsWrapper.appendChild(addProjects);
 
   const newProjectWrapper = document.createElement("div");
@@ -114,7 +114,7 @@ const addProject = () => {
   const projectWrapper = document.createElement("div");
   projectWrapper.classList = "category";
   projectWrapper.id = "project-wrapper";
-  projectWrapper.dataset.project = "0";
+  projectWrapper.dataset.project = newProjectWrapper.childElementCount;
   projectWrapper.addEventListener("click", toggleSelected);
   newProjectWrapper.appendChild(projectWrapper);
 
@@ -163,4 +163,34 @@ const setCategoryTitle = () => {
   const categoryTitle = document.querySelector(".category-title");
   const selectedCategory = document.querySelector(".category.active");
   categoryTitle.textContent = selectedCategory.children[1].textContent;
+};
+
+const inputProjectName = () => {
+  const newProjectWrapper = document.querySelector(".new-project-wrapper");
+  const projectNameWrapper = document.createElement("div");
+  projectNameWrapper.classList = "project-name-wrapper";
+  newProjectWrapper.appendChild(projectNameWrapper);
+
+  const projectNameInput = document.createElement("input");
+  projectNameInput.type = "text";
+  projectNameInput.name = "project-name";
+  projectNameInput.id = "project-name";
+  projectNameInput.minLength = "1";
+  projectNameWrapper.appendChild(projectNameInput);
+
+  const projectNameButtons = document.createElement("div");
+  projectNameButtons.classList = "project-name-buttons-wrapper";
+  projectNameWrapper.appendChild(projectNameButtons);
+
+  const projectAddButton = document.createElement("button");
+  projectAddButton.id = "add-name";
+  projectAddButton.textContent = "Add";
+  projectAddButton.addEventListener("click", preventSubmission);
+  projectNameButtons.appendChild(projectAddButton);
+
+  const projectCancelButton = document.createElement("button");
+  projectCancelButton.id = "cancel-name";
+  projectCancelButton.textContent = "Cancel";
+  projectCancelButton.addEventListener("click", preventSubmission);
+  projectNameButtons.appendChild(projectCancelButton);
 };
