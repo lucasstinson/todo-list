@@ -1,7 +1,7 @@
 html {
   font-family: Arial, Helvetica, sans-serif;
   box-sizing: border-box;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 body {
@@ -10,7 +10,7 @@ body {
   margin: 0;
   padding: 0;
   height: 100vh;
-  grid-template-columns: minmax(250px, 1fr) 7fr;
+  grid-template-columns: minmax(250px, 1fr) minmax(500px, 7fr);
 }
 
 .search-container {
@@ -140,7 +140,8 @@ body {
 }
 
 .projects-add {
-  font-size: 24px;
+  font-size: 22px;
+  /* border: solid black; */
   padding: 5px 13px;
   border-radius: 50%;
 }
@@ -150,13 +151,41 @@ body {
   color: white;
 }
 
-#to-do-form {
+.task-container {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  /* border: 1px solid red; */
-  margin: 10px;
+  /* align-items: center; */
+  gap: 10px;
+  margin-top: 10px;
+  margin-left: 10%;
+  margin-right: 10%;
   grid-column: 2;
+}
+
+.category-title {
+  border-bottom: 1px solid black;
+  text-align: center;
+}
+
+.add-task-wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  background-color: #f3f3f3;
+  border-radius: 10px;
+}
+
+.add-task-wrapper:hover {
+  background-color: rgb(128, 128, 128, 0.15);
+  transition: all 0.2s;
+}
+
+#to-do-form {
+  visibility: visible;
+  display: flex;
+  /* flex-direction: column; */
+  justify-content: center;
+  align-items: center;
 }
 
 .todo-wrapper:hover {
@@ -167,7 +196,7 @@ body {
 
 .todo-wrapper {
   /* border: 1px solid green; */
-  background-color: #fafafa;
+  background-color: #f3f3f3;
   padding: 16px;
   border-radius: 10px;
 }
@@ -175,9 +204,9 @@ body {
 ul {
   display: flex;
   padding: 0;
-  /* justify-content: space-between; */
+  justify-content: center;
   align-items: center;
-  gap: 100px;
+  gap: 10px;
 }
 
 li {
@@ -193,7 +222,7 @@ label {
 .priority-wrapper {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 1px;
 }
 
 #title:hover,
@@ -278,23 +307,41 @@ label {
   box-shadow: none;
 }
 
+.button-wrapper {
+  display: flex;
+  justify-content: space-around;
+  gap: 20px;
+}
+
 #add-todo {
   border: 1px solid blue;
   font-size: 16px;
-  padding: 8px 16px;
+  padding: 8px 200px;
   border-radius: 5px;
   background-color: transparent;
   font-weight: 700;
   color: blue;
 }
 
-.add-button-wrapper {
-  display: flex;
-  justify-content: center;
-}
-
 #add-todo:hover {
   background-color: blue;
+  color: white;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+#cancel-todo {
+  border: 1px solid salmon;
+  font-size: 16px;
+  padding: 8px 200px;
+  border-radius: 5px;
+  background-color: transparent;
+  font-weight: 700;
+  color: salmon;
+}
+
+#cancel-todo:hover {
+  background-color: salmon;
   color: white;
   transition: all 0.2s;
   cursor: pointer;
