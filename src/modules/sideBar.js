@@ -1,4 +1,5 @@
 export { createSideBar, addProject };
+// import { setCategoryTitle } from "./taskManager.js";
 
 const body = document.querySelector("body");
 
@@ -155,4 +156,11 @@ const addSelected = (e) => {
   } else if (e.target.className === "category") {
     e.target.className += " active";
   }
+  setCategoryTitle();
+};
+
+const setCategoryTitle = () => {
+  const categoryTitle = document.querySelector(".category-title");
+  const selectedCategory = document.querySelector(".category.active");
+  categoryTitle.textContent = selectedCategory.children[1].textContent;
 };
