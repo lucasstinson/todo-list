@@ -323,7 +323,8 @@ label {
   color: blue;
 }
 
-#add-todo:hover {
+#add-todo:hover,
+#add-name:hover {
   background-color: blue;
   color: white;
   transition: all 0.2s;
@@ -340,9 +341,44 @@ label {
   color: salmon;
 }
 
-#cancel-todo:hover {
+#cancel-todo:hover,
+#cancel-name:hover {
   background-color: salmon;
   color: white;
   transition: all 0.2s;
   cursor: pointer;
+}
+
+.project-name-wrapper {
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+  margin-left: 50px;
+  /* border: 1px solid red; */
+  gap: 5px;
+}
+
+.project-name-buttons-wrapper {
+  display: flex;
+  justify-content: space-around;
+}
+
+#add-name {
+  border: 1px solid blue;
+  /* font-size: 16px; */
+  padding: 6px 12px;
+  border-radius: 5px;
+  background-color: transparent;
+  font-weight: 700;
+  color: blue;
+}
+
+#cancel-name {
+  border: 1px solid salmon;
+  /* font-size: 16px; */
+  padding: 6px 12px;
+  border-radius: 5px;
+  background-color: transparent;
+  font-weight: 700;
+  color: salmon;
 }
