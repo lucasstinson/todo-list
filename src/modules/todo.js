@@ -1,5 +1,7 @@
 export { todo, todoForm };
 import { preventSubmission } from "./tools.js";
+import { taskContainer } from "./taskManager.js";
+
 const todo = () => {
   let todo = {
     title: "",
@@ -17,7 +19,7 @@ const todoForm = () => {
 
   // Make sure to adjust this
   // Make sure to adjust this
-  document.querySelector("body").appendChild(form);
+  document.querySelector(".task-container").appendChild(form);
 
   let todoWrapper = document.createElement("div");
   todoWrapper.classList = "todo-wrapper";
@@ -118,24 +120,31 @@ const todoForm = () => {
   optionThreeLabel.classList = "option-three-label";
   optionWrapper.appendChild(optionThreeLabel);
 
-  let addButtonWrapper = document.createElement("div");
-  addButtonWrapper.classList = "add-button-wrapper";
-  todoWrapper.appendChild(addButtonWrapper);
+  let buttonWrapper = document.createElement("div");
+  buttonWrapper.classList = "button-wrapper";
+  todoWrapper.appendChild(buttonWrapper);
 
   let addButton = document.createElement("button");
   addButton.id = "add-todo";
   addButton.textContent = "Add";
   addButton.addEventListener("click", preventSubmission);
-  addButton.addEventListener("click", addTodo);
-  addButtonWrapper.appendChild(addButton);
+  addButton.addEventListener("click", getTodo);
+  buttonWrapper.appendChild(addButton);
+
+  let cancelButton = document.createElement("button");
+  cancelButton.id = "cancel-todo";
+  cancelButton.textContent = "Cancel";
+  cancelButton.addEventListener("click", preventSubmission);
+  // cancelButton.addEventListener("click", getTodo);
+  buttonWrapper.appendChild(cancelButton);
 };
 
-const addTodo = (e) => {
-  // console.log(e.target.parentElement.parentElement);
-  let domForm = e.target.parentElement.parentElement;
-  let titleTest = domForm[0].value;
-  let descriptionTest = domForm[1].value;
-  let dueDateTest = domForm[2].value;
+const getTodo = (e) => {
+  // console.log(e.target.parentElement.parentElement.children[0]);
+  let domForm = e.target.parentElement.parentElement.children[0];
+  let titleTest = domForm.children[0].children[1].value;
+  let descriptionTest = domForm.children[1].children[1].value;
+  let dueDateTest = domForm.children[2].children[1].value;
   let priorityTest = document.querySelector('input[type="radio"]:checked');
   if (priorityTest == null) {
     priorityTest = "";

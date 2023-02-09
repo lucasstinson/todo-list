@@ -1,10 +1,13 @@
-import { todoForm, todo } from "./modules/todo.js";
 import { createSearchBar } from "./modules/searchBar.js";
-import { addProject, createSideBar } from "./modules/sideBar.js";
+import { createSideBar } from "./modules/sideBar.js";
+import { taskContainer } from "./modules/taskManager.js";
+import { todoForm, todo } from "./modules/todo.js";
 
 createSearchBar();
 createSideBar();
-todoForm();
+taskContainer();
+
+// console.log(document.querySelector("#to-do-form").style);
 
 // TO do form should contain
 // title, description, dueDate, priority
