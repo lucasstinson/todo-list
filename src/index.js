@@ -1,6 +1,6 @@
-import { todoForm, todo } from "./todo.js";
-import { createSearchBar } from "./searchBar.js";
-import { addProject, createSideBar } from "./sideBar.js";
+import { todoForm, todo } from "./modules/todo.js";
+import { createSearchBar } from "./modules/searchBar.js";
+import { addProject, createSideBar } from "./modules/sideBar.js";
 
 createSearchBar();
 createSideBar();
