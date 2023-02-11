@@ -15,8 +15,16 @@ body {
 
 .search-container {
   /* background-color: #ffff88; */
+  display: grid;
+  grid-template-columns: minmax(300px, 1fr) minmax(500px, 7fr);
+  align-items: center;
   background-color: #74e77c;
   grid-column: 1 / 3;
+}
+
+.title {
+  display: flex;
+  padding-left: 10px;
 }
 
 #search-form {
@@ -71,7 +79,7 @@ body {
   /* background-color: #ebebeb; */
   /* padding-top: 10px; */
   grid-row: 2;
-  height: calc(100vh - 60px);
+  height: calc(100vh - 70px);
   grid-column: 1;
   gap: 5px;
 }
@@ -105,6 +113,7 @@ body {
 .projects-wrapper {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   padding: 15px 15px 15px 10px;
   gap: 5px;
   font-weight: 700;

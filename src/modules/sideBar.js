@@ -153,7 +153,7 @@ const inputProjectName = () => {
   projectNameInput.type = "text";
   projectNameInput.name = "project-name";
   projectNameInput.id = "project-name";
-  projectNameInput.maxLength = "14";
+  projectNameInput.maxLength = "12";
   projectNameWrapper.appendChild(projectNameInput);
 
   const projectNameButtons = document.createElement("div");

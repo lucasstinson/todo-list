@@ -1,3 +1,4 @@
+import { todo } from "./todo.js";
 import { enterKeyPressed } from "./tools.js";
 
 const createSearchBar = () => {
@@ -5,6 +6,11 @@ const createSearchBar = () => {
   searchContainer.classList = "search-container";
 
   document.querySelector("body").appendChild(searchContainer);
+
+  let todoTitle = document.createElement("h2");
+  todoTitle.classList = "title";
+  todoTitle.textContent = "🗒️ Task-Manager";
+  searchContainer.appendChild(todoTitle);
 
   let form = document.createElement("form");
   form.id = "search-form";
