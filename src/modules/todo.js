@@ -152,5 +152,3 @@ const getTodo = (e) => {
   }
   console.table(titleTest, descriptionTest, dueDateTest, priorityTest.value);
 };
-
-// addButton.addEventListener("click", conosole.log(e));

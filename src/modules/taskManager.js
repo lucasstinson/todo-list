@@ -31,10 +31,19 @@ const enterTask = () => {
 
 const taskList = () => {
   const taskContainer = document.querySelector(".task-container");
+
   const tasksWrapper = document.createElement("div");
   tasksWrapper.classList = "tasks-wrapper";
-  tasksWrapper.textContent = "test";
   taskContainer.appendChild(tasksWrapper);
+
+  const taskWrapper = document.createElement("div");
+  taskWrapper.classList = "task-wrapper";
+  tasksWrapper.appendChild(taskWrapper);
+
+  const taskCompleteButton = document.createElement("input");
+  taskCompleteButton.classList = "complete-button";
+  taskCompleteButton.setAttribute("type", "checkbox");
+  taskWrapper.appendChild(taskCompleteButton);
 };
 
 const todoFormVisibility = () => {
@@ -44,14 +53,4 @@ const todoFormVisibility = () => {
   const taskContainer = document.querySelector(".task-container");
 
   taskContainer.replaceChild(form, addTask);
-  // if (todoForm.style.visibility == "hidden") {
-  //   todoForm.style.visibility = "visible";
-  // } else {
-  //   todoForm.style.visibility = "visible";
-  // }
 };
-
-// var myAnchor = document.getElementById("myAnchor");
-//   var mySpan = document.createElement("span");
-//   mySpan.innerHTML = "replaced anchor!";
-//   myAnchor.parentNode.replaceChild(mySpan, myAnchor);
