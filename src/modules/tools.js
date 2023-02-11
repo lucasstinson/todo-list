@@ -20,5 +20,6 @@ const cancelTask = () => {
 };
 
 const cancelProject = (e) => {
-  e.target.parentElement.parentElement.remove();
+  const newProject = document.querySelector(".new-project-form");
+  newProject.remove();
 };

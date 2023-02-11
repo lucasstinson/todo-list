@@ -109,26 +109,6 @@ const createSideBar = () => {
   projectWrapper.appendChild(newProject);
 };
 
-const addProject = () => {
-  const newProjectWrapper = document.querySelector(".new-project-wrapper");
-  const projectWrapper = document.createElement("div");
-  projectWrapper.classList = "category";
-  projectWrapper.id = "project-wrapper";
-  projectWrapper.dataset.project = newProjectWrapper.childElementCount;
-  projectWrapper.addEventListener("click", toggleSelected);
-  newProjectWrapper.appendChild(projectWrapper);
-
-  const projectImage = document.createElement("img");
-  projectImage.classList = "project-image";
-  projectImage.src = "../dist/images/project.png";
-  projectWrapper.appendChild(projectImage);
-
-  const newProject = document.createElement("div");
-  newProject.classList = "new-project";
-  newProject.textContent = "New Project";
-  projectWrapper.appendChild(newProject);
-};
-
 const adjustProjects = () => {
   const expandArrow = document.querySelector(".expand-arrow");
   const newProjectWrapper = document.querySelector(".new-project-wrapper");
@@ -159,23 +139,21 @@ const addSelected = (e) => {
   setCategoryTitle();
 };
 
-const setCategoryTitle = () => {
-  const categoryTitle = document.querySelector(".category-title");
-  const selectedCategory = document.querySelector(".category.active");
-  categoryTitle.textContent = selectedCategory.children[1].textContent;
-};
-
 const inputProjectName = () => {
   const newProjectWrapper = document.querySelector(".new-project-wrapper");
+  const newProjectForm = document.createElement("form");
+  newProjectForm.classList = "new-project-form";
+  newProjectWrapper.appendChild(newProjectForm);
+
   const projectNameWrapper = document.createElement("div");
   projectNameWrapper.classList = "project-name-wrapper";
-  newProjectWrapper.appendChild(projectNameWrapper);
+  newProjectForm.appendChild(projectNameWrapper);
 
   const projectNameInput = document.createElement("input");
   projectNameInput.type = "text";
   projectNameInput.name = "project-name";
   projectNameInput.id = "project-name";
-  projectNameInput.minLength = "1";
+  projectNameInput.maxLength = "14";
   projectNameWrapper.appendChild(projectNameInput);
 
   const projectNameButtons = document.createElement("div");
@@ -186,6 +164,7 @@ const inputProjectName = () => {
   projectAddButton.id = "add-name";
   projectAddButton.textContent = "Add";
   projectAddButton.addEventListener("click", preventSubmission);
+  projectAddButton.addEventListener("click", addProject);
   projectNameButtons.appendChild(projectAddButton);
 
   const projectCancelButton = document.createElement("button");
@@ -194,4 +173,37 @@ const inputProjectName = () => {
   projectCancelButton.addEventListener("click", preventSubmission);
   projectCancelButton.addEventListener("click", cancelProject);
   projectNameButtons.appendChild(projectCancelButton);
+};
+
+const addProject = (e) => {
+  let inputValue = e.target.parentElement.parentElement.children[0].value;
+  cancelProject();
+
+  const newProjectWrapper = document.querySelector(".new-project-wrapper");
+  const projectWrapper = document.createElement("div");
+  projectWrapper.classList = "category";
+  projectWrapper.id = "project-wrapper";
+  projectWrapper.dataset.project = newProjectWrapper.childElementCount;
+  projectWrapper.addEventListener("click", toggleSelected);
+  newProjectWrapper.appendChild(projectWrapper);
+
+  const projectImage = document.createElement("img");
+  projectImage.classList = "project-image";
+  projectImage.src = "../dist/images/project.png";
+  projectWrapper.appendChild(projectImage);
+
+  const newProject = document.createElement("div");
+  newProject.classList = "new-project";
+
+  if (inputValue == "") {
+    inputValue = "Project " + newProjectWrapper.childElementCount;
+  }
+  newProject.textContent = inputValue;
+  projectWrapper.appendChild(newProject);
+};
+
+const setCategoryTitle = () => {
+  const categoryTitle = document.querySelector(".category-title");
+  const selectedCategory = document.querySelector(".category.active");
+  categoryTitle.textContent = selectedCategory.children[1].textContent;
 };
