@@ -122,6 +122,12 @@ body {
   gap: 20px;
 }
 
+.new-project-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
 #project-wrapper {
   display: flex;
   align-items: center;
