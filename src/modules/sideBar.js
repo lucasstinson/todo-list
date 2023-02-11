@@ -1,5 +1,5 @@
 export { createSideBar, addProject };
-import { preventSubmission } from "./tools.js";
+import { preventSubmission, cancelProject } from "./tools.js";
 
 const body = document.querySelector("body");
 
@@ -192,5 +192,6 @@ const inputProjectName = () => {
   projectCancelButton.id = "cancel-name";
   projectCancelButton.textContent = "Cancel";
   projectCancelButton.addEventListener("click", preventSubmission);
+  projectCancelButton.addEventListener("click", cancelProject);
   projectNameButtons.appendChild(projectCancelButton);
 };

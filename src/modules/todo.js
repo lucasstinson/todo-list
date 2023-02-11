@@ -1,5 +1,5 @@
 export { todo, todoForm };
-import { preventSubmission } from "./tools.js";
+import { preventSubmission, cancelTask } from "./tools.js";
 import { taskContainer } from "./taskManager.js";
 
 const todo = () => {
@@ -135,6 +135,7 @@ const todoForm = () => {
   cancelButton.id = "cancel-todo";
   cancelButton.textContent = "Cancel";
   cancelButton.addEventListener("click", preventSubmission);
+  cancelButton.addEventListener("click", cancelTask);
   // cancelButton.addEventListener("click", getTodo);
   buttonWrapper.appendChild(cancelButton);
 };

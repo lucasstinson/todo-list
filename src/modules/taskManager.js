@@ -1,4 +1,4 @@
-export { taskContainer };
+export { taskContainer, enterTask };
 import { todo, todoForm } from "./todo.js";
 
 const taskContainer = () => {
@@ -12,6 +12,11 @@ const taskContainer = () => {
   categoryTitle.classList = "category-title";
   categoryTitle.textContent = "All";
   taskContainer.appendChild(categoryTitle);
+  enterTask();
+};
+
+const enterTask = () => {
+  const taskContainer = document.querySelector(".task-container");
 
   const addTaskWrapper = document.createElement("div");
   addTaskWrapper.classList = "add-task-wrapper";
