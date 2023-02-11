@@ -11,9 +11,12 @@ const enterKeyPressed = (e) => {
   }
 };
 
-const cancelTask = (e) => {
-  e.target.parentElement.parentElement.parentElement.remove();
+const cancelTask = () => {
   enterTask();
+  const addTask = document.querySelector(".add-task-wrapper");
+  const form = document.querySelector("#to-do-form");
+  const taskContainer = document.querySelector(".task-container");
+  taskContainer.replaceChild(addTask, form);
 };
 
 const cancelProject = (e) => {

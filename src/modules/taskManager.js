@@ -30,7 +30,7 @@ const enterTask = () => {
 };
 
 const taskList = () => {
-  const taskContainer = document.querySelector(".task-contianer");
+  const taskContainer = document.querySelector(".task-container");
   const tasksWrapper = document.createElement("div");
   tasksWrapper.classList = "tasks-wrapper";
   tasksWrapper.textContent = "test";
