@@ -183,6 +183,7 @@ body {
 }
 
 .add-task-wrapper {
+  visibility: hidden;
   display: flex;
   justify-content: center;
   padding: 10px;
