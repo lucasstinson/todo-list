@@ -177,8 +177,9 @@ body {
 }
 
 .category-title {
-  border-bottom: 1px solid black;
+  /* border-bottom: 1px solid black; */
   text-align: center;
+  font-size: xx-large;
 }
 
 .add-task-wrapper {
@@ -394,4 +395,60 @@ label {
   background-color: transparent;
   font-weight: 700;
   color: salmon;
+}
+
+.tasks-wrapper {
+  padding-top: 10px;
+}
+
+.tasks-title {
+  font-weight: 700;
+  font-size: 24px;
+  border-bottom: 1px solid black;
+  margin-bottom: 10px;
+}
+
+.task-wrapper {
+  display: flex;
+  justify-content: space-around;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-bottom: 5px;
+  border-radius: 5px;
+  /* background-color: rgb(128, 128, 128, 0.15); */
+  border: 1px solid lightgray;
+}
+
+.task-wrapper:hover {
+  background-color: rgb(128, 128, 128, 0.1);
+  /* box-shadow: 0 1px 2px rgba(32, 33, 36, 0.5); */
+}
+
+.complete-button-wrapper input {
+  display: none;
+}
+
+.complete-button-wrapper label:hover {
+  cursor: pointer;
+}
+
+.complete-button-wrapper input:checked + label {
+  box-shadow: none;
+}
+
+.complete-button-wrapper .complete-button-label {
+  color: rgb(255, 67, 67);
+  /* font-size: 14px; */
+  /* line-height: 1;
+  text-align: center; */
+  padding: 1px 11px;
+  border: 1px solid rgb(255, 67, 67);
+  border-radius: 50px;
+  transition: all 0.2s;
+}
+
+.complete-button-wrapper input:checked + .complete-button-label,
+.complete-button-wrapper input:hover + .complete-button-label {
+  background-color: rgb(255, 67, 67);
+  color: white;
 }
