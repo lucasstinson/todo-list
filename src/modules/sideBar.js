@@ -13,6 +13,7 @@ const createSideBar = () => {
   allTodoWrapper.classList = "category active";
   allTodoWrapper.id = "all-todo-wrapper";
   allTodoWrapper.addEventListener("click", toggleSelected);
+  allTodoWrapper.addEventListener("click", hideAddTask);
   sideBar.appendChild(allTodoWrapper);
 
   const allTodoImage = document.createElement("img");
@@ -29,6 +30,7 @@ const createSideBar = () => {
   todayTodoWrapper.classList = "category";
   todayTodoWrapper.id = "today-todo-wrapper";
   todayTodoWrapper.addEventListener("click", toggleSelected);
+  todayTodoWrapper.addEventListener("click", hideAddTask);
   sideBar.appendChild(todayTodoWrapper);
 
   const todayTodoImage = document.createElement("img");
@@ -45,6 +47,7 @@ const createSideBar = () => {
   upcomingTodoWrapper.classList = "category";
   upcomingTodoWrapper.id = "upcoming-todo-wrapper";
   upcomingTodoWrapper.addEventListener("click", toggleSelected);
+  upcomingTodoWrapper.addEventListener("click", hideAddTask);
   sideBar.appendChild(upcomingTodoWrapper);
 
   const upcomingTodoImage = document.createElement("img");
@@ -96,6 +99,7 @@ const createSideBar = () => {
   projectWrapper.id = "project-wrapper";
   projectWrapper.dataset.project = "0";
   projectWrapper.addEventListener("click", toggleSelected);
+  projectWrapper.addEventListener("click", seeAddTask);
   newProjectWrapper.appendChild(projectWrapper);
 
   const projectImage = document.createElement("img");
@@ -185,6 +189,7 @@ const addProject = (e) => {
   projectWrapper.id = "project-wrapper";
   projectWrapper.dataset.project = newProjectWrapper.childElementCount;
   projectWrapper.addEventListener("click", toggleSelected);
+  projectWrapper.addEventListener("click", seeAddTask);
   newProjectWrapper.appendChild(projectWrapper);
 
   const projectImage = document.createElement("img");
@@ -206,4 +211,15 @@ const setCategoryTitle = () => {
   const categoryTitle = document.querySelector(".category-title");
   const selectedCategory = document.querySelector(".category.active");
   categoryTitle.textContent = selectedCategory.children[1].textContent;
+};
+
+const seeAddTask = (e) => {
+  console.log(e.target);
+  const addTask = document.querySelector(".add-task-wrapper");
+  addTask.style.visibility = "visible";
+};
+
+const hideAddTask = (e) => {
+  const addTask = document.querySelector(".add-task-wrapper");
+  addTask.style.visibility = "hidden";
 };

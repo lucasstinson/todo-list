@@ -43,6 +43,7 @@ const taskList = () => {
 
   const taskWrapper = document.createElement("div");
   taskWrapper.classList = "task-wrapper";
+  taskWrapper.dataset.task = 0;
   tasksWrapper.appendChild(taskWrapper);
 
   const taskCompleteButtonWrapper = document.createElement("div");

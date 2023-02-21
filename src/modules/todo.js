@@ -138,7 +138,7 @@ const todoForm = () => {
   cancelButton.textContent = "Cancel";
   cancelButton.addEventListener("click", preventSubmission);
   cancelButton.addEventListener("click", cancelTask);
-  // cancelButton.addEventListener("click", getTodo);
+  cancelButton.addEventListener("click", getTodo);
   buttonWrapper.appendChild(cancelButton);
 };
 
