@@ -50,6 +50,7 @@ const todoForm = () => {
   titleInput.id = "title";
   titleInput.required = true;
   titleInput.minLength = "1";
+  titleInput.maxLength = "30";
   firstli.appendChild(titleInput);
 
   let descriptionLabel = document.createElement("label");
@@ -60,6 +61,7 @@ const todoForm = () => {
   descriptionInput.type = "text";
   descriptionInput.name = "description";
   descriptionInput.id = "description";
+  descriptionInput.maxLength = "50";
   secondli.appendChild(descriptionInput);
 
   let dueDateLabel = document.createElement("label");

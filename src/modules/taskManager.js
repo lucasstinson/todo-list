@@ -12,7 +12,7 @@ const taskContainer = () => {
   categoryTitle.classList = "category-title";
   categoryTitle.textContent = "All";
   taskContainer.appendChild(categoryTitle);
-  enterTask();
+  taskList();
 };
 
 const enterTask = () => {
@@ -36,14 +36,48 @@ const taskList = () => {
   tasksWrapper.classList = "tasks-wrapper";
   taskContainer.appendChild(tasksWrapper);
 
+  const tasksTitle = document.createElement("div");
+  tasksTitle.classList = "tasks-title";
+  tasksTitle.textContent = "Tasks (#)";
+  tasksWrapper.appendChild(tasksTitle);
+
   const taskWrapper = document.createElement("div");
   taskWrapper.classList = "task-wrapper";
   tasksWrapper.appendChild(taskWrapper);
 
+  const taskCompleteButtonWrapper = document.createElement("div");
+  taskCompleteButtonWrapper.classList = "complete-button-wrapper";
+  taskWrapper.appendChild(taskCompleteButtonWrapper);
+
   const taskCompleteButton = document.createElement("input");
   taskCompleteButton.classList = "complete-button";
+  taskCompleteButton.id = "complete-button";
   taskCompleteButton.setAttribute("type", "checkbox");
-  taskWrapper.appendChild(taskCompleteButton);
+  taskCompleteButton.addEventListener("change", taskCompleted);
+  taskCompleteButtonWrapper.appendChild(taskCompleteButton);
+
+  let completeButtonLabel = document.createElement("label");
+  completeButtonLabel.setAttribute("for", "complete-button");
+  // completeButtonLabel.textContent = "High";
+  completeButtonLabel.classList = "complete-button-label";
+  taskCompleteButtonWrapper.appendChild(completeButtonLabel);
+
+  const taskTitle = document.createElement("div");
+  taskTitle.classList = "task-title";
+  taskTitle.textContent = "Test Task";
+  taskWrapper.appendChild(taskTitle);
+
+  const taskDescription = document.createElement("div");
+  taskDescription.classList = "task-description";
+  taskDescription.textContent = "Description for a test task";
+  taskWrapper.appendChild(taskDescription);
+
+  const taskDate = document.createElement("div");
+  taskDate.classList = "task-date";
+  taskDate.textContent = "12/21/2012";
+  taskWrapper.appendChild(taskDate);
+
+  enterTask();
 };
 
 const todoFormVisibility = () => {
@@ -53,4 +87,18 @@ const todoFormVisibility = () => {
   const taskContainer = document.querySelector(".task-container");
 
   taskContainer.replaceChild(form, addTask);
+};
+
+const taskCompleted = (e) => {
+  if (e.target.classList.length == 1) {
+    e.target.classList = "complete-button checked";
+    e.target.parentNode.parentNode.style.textDecoration = "line-through";
+    e.target.parentNode.parentNode.style.opacity = "0.5";
+  } else if (e.target.classList.length == 2) {
+    e.target.classList = "complete-button";
+    e.target.parentNode.parentNode.style.textDecoration = "none";
+    e.target.parentNode.parentNode.style.opacity = "1";
+  }
+  // const checkbox = document.querySelector(".complete-button");
+  // checkbox.classList = ".complete-button checked";
 };
