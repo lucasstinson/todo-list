@@ -2,11 +2,43 @@
 
 This Todo List which will incorporate the information learned thus far including OOP, IIFEs, Modules, & S.O.L.I.D principles
 
-### The Todo List
+### Project: The Todo List
 
-Todo lists are a staple in beginning webdev tutorials because they can be very simple. There is, however, a lot of room for improvement and many features that can be added.
+The project is from The Odin Project [curriculum](https://www.theodinproject.com/paths/full-stack-javascript/courses/javascript/lessons/todo-list). Or see the Assignment Below.
 
-Before diving into the code, take a minute to think about how you are going to want to organize your project.
+A **live preview** of the project is [here](https://lucasstinson.github.io/todo-list/).
+
+### Overview
+
+#### **Features:**
+
+- You can add projects.
+- You can add and delete and tasks.
+- You can include a title, description, due date and priority for the task.
+- Each task is categorized under it’s project and based on a time window.
+  - **ALL** displays all tasks
+  - **Today** displays all tasks due today
+  - **Upcoming** displays all tasks from today on
+- You can mark tasks as complete.
+- Session Storage has been implemented (data will remain until you close your browser or delete the Session data)
+
+#### **Tools:**
+
+<p align="left"> 
+<a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg" alt="html5" width="50" height="50"/> </a> 
+<a href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg" alt="css3" width="50" height="50"/> </a>
+<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="javascript" width="50" height="50"/> </a>
+<a href="https://firebase.google.com/" target="_blank"> <img src="https://raw.githubusercontent.com/devicons/devicon/1119b9f84c0290e0f0b38982099a2bd027a48bf1/icons/firebase/firebase-plain.svg" alt="firebase" width="50" height="50"/> </a>
+<a href="https://webpack.js.org" target="_blank"> <img src="https://raw.githubusercontent.com/devicons/devicon/1119b9f84c0290e0f0b38982099a2bd027a48bf1/icons/webpack/webpack-original.svg" alt="webpack" width="50" height="50"/> </a> 
+</p>
+
+#### **Areas of Improvement:**
+
+- The code for displaying elements is much more manual than it should be. A more effective use of the array of objects containing the projects and task would lead to a reduction in code and an easier read.
+- A user should be able to remove the projects and thus all tasks related to that project.
+- A Search bar can be added to find tasks much easier.
+- A user should be able to edit a project name and task
+- Once these improvements are made, then local Storage can be used.
 
 ### Assignment
 
