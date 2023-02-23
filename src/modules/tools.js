@@ -1,4 +1,10 @@
-export { preventSubmission, enterKeyPressed, cancelTask, cancelProject };
+export {
+  preventSubmission,
+  enterKeyPressed,
+  cancelTask,
+  cancelProject,
+  getDateTimezoneOffset,
+};
 import { todoForm } from "./todo.js";
 import { enterTask } from "./taskManager.js";
 const preventSubmission = (e) => {
@@ -23,4 +29,13 @@ const cancelTask = () => {
 const cancelProject = (e) => {
   const newProject = document.querySelector(".new-project-form");
   newProject.remove();
+};
+
+const getDateTimezoneOffset = () => {
+  let utcDate = new Date();
+  let localDate = new Date(
+    utcDate.getTime() - utcDate.getTimezoneOffset() * 60000
+  );
+  let todayDate = localDate.toISOString().split("T")[0];
+  return todayDate;
 };

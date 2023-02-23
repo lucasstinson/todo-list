@@ -8,19 +8,19 @@ let projectList = [
     title: "New Project",
     tasks: [
       {
-        title: "Low Priority Task",
+        title: "Low Priority",
         description: "Description for a test task",
         dueDate: "2012-12-21",
         priority: "Low",
       },
       {
-        title: "High Priority Task",
+        title: "High Priority",
         description: "Description for a test task",
-        dueDate: "2023-02-23",
+        dueDate: "2023-02-22",
         priority: "High",
       },
       {
-        title: "Medium Priority Task",
+        title: "Med Priority",
         description: "Description for a test task",
         dueDate: "2023-06-20",
         priority: "Medium",
@@ -132,6 +132,7 @@ const createSideBar = () => {
   projectWrapper.dataset.project = "0";
   projectWrapper.addEventListener("click", toggleSelected);
   projectWrapper.addEventListener("click", seeAddTask);
+  projectWrapper.addEventListener("click", displayTasks);
   newProjectWrapper.appendChild(projectWrapper);
 
   const projectImage = document.createElement("img");
