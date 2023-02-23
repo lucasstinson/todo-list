@@ -61,10 +61,34 @@ const taskCompleted = (e) => {
     e.target.classList = "complete-button checked";
     e.target.parentNode.parentNode.style.textDecoration = "line-through";
     e.target.parentNode.parentNode.style.opacity = "0.5";
+
+    for (let i = 0; i < projectList.length; i++) {
+      for (let j = 0; j < projectList[i].tasks.length; j++) {
+        let title = projectList[i].tasks[j].title;
+        let currentTaskTitle =
+          e.target.parentNode.parentNode.childNodes[1].textContent;
+        console.log(title);
+        console.log(currentTaskTitle);
+        console.log(projectList);
+        if (currentTaskTitle == title) {
+          projectList[i].tasks[j].status = "Closed";
+        }
+      }
+    }
   } else if (e.target.classList.length == 2) {
     e.target.classList = "complete-button";
     e.target.parentNode.parentNode.style.textDecoration = "none";
     e.target.parentNode.parentNode.style.opacity = "1";
+    for (let i = 0; i < projectList.length; i++) {
+      for (let j = 0; j < projectList[i].tasks.length; j++) {
+        let title = projectList[i].tasks[j].title;
+        let currentTaskTitle =
+          e.target.parentNode.parentNode.childNodes[1].textContent;
+        if (currentTaskTitle == title) {
+          projectList[i].tasks[j].status = "Open";
+        }
+      }
+    }
   }
 };
 
@@ -81,7 +105,8 @@ const displayTasks = () => {
         let description = projectList[i].tasks[j].description;
         let dueDate = projectList[i].tasks[j].dueDate;
         let priority = projectList[i].tasks[j].priority;
-        addTask(title, description, dueDate, priority);
+        let completed = projectList[i].tasks[j].status;
+        addTask(title, description, dueDate, priority, completed);
       }
     }
   } else if (selectedCategory.id == "today-todo-wrapper") {
@@ -91,8 +116,9 @@ const displayTasks = () => {
         let description = projectList[i].tasks[j].description;
         let dueDate = projectList[i].tasks[j].dueDate;
         let priority = projectList[i].tasks[j].priority;
+        let completed = projectList[i].tasks[j].status;
         if (dueDate == getDateTimezoneOffset()) {
-          addTask(title, description, dueDate, priority);
+          addTask(title, description, dueDate, priority, completed);
         }
       }
     }
@@ -103,8 +129,9 @@ const displayTasks = () => {
         let description = projectList[i].tasks[j].description;
         let dueDate = projectList[i].tasks[j].dueDate;
         let priority = projectList[i].tasks[j].priority;
+        let completed = projectList[i].tasks[j].status;
         if (dueDate >= getDateTimezoneOffset()) {
-          addTask(title, description, dueDate, priority);
+          addTask(title, description, dueDate, priority, completed);
         }
       }
     }
@@ -116,14 +143,15 @@ const displayTasks = () => {
           let description = projectList[i].tasks[j].description;
           let dueDate = projectList[i].tasks[j].dueDate;
           let priority = projectList[i].tasks[j].priority;
-          addTask(title, description, dueDate, priority);
+          let completed = projectList[i].tasks[j].status;
+          addTask(title, description, dueDate, priority, completed);
         }
       }
     }
   }
 };
 
-const addTask = (title, description, dueDate, priority) => {
+const addTask = (title, description, dueDate, priority, completed) => {
   const tasksWrapper = document.querySelector(".tasks-wrapper");
 
   const taskWrapper = document.createElement("div");
@@ -173,8 +201,11 @@ const addTask = (title, description, dueDate, priority) => {
   taskDate.classList = "task-date";
   taskDate.textContent = dueDate;
   taskWrapper.appendChild(taskDate);
-};
 
-// while (cntnt.childNodes.length > 1) {
-//   cntnt.removeChild(cntnt.lastChild);
-// }
+  if (completed == "Closed") {
+    taskWrapper.children[0].children[0].classList = "complete-button checked";
+    taskWrapper.style.textDecoration = "line-through";
+    taskWrapper.style.opacity = "0.5";
+    taskWrapper.children[0].children[0].checked = true;
+  }
+};

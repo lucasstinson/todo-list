@@ -12,18 +12,21 @@ let projectList = [
         description: "Description for a test task",
         dueDate: "2012-12-21",
         priority: "Low",
+        status: "Open",
       },
       {
         title: "High Priority",
         description: "Description for a test task",
         dueDate: "2023-02-22",
         priority: "High",
+        status: "Closed",
       },
       {
         title: "Med Priority",
         description: "Description for a test task",
         dueDate: "2023-06-20",
         priority: "Medium",
+        status: "Open",
       },
     ],
   },
@@ -243,26 +246,8 @@ const addProject = (e) => {
   projectList.push({ title: inputValue, tasks: [] });
 
   console.log(projectList);
-  // This is how you add a task to a project
-  //   for (let i = 0; i < projectList.length; i++) {
-  //     if (projectList[i].title == inputValue) {
-  //       projectList[i].tasks = [
-  //         {
-  //           title: "titleTest",
-  //           description: "descriptionTest",
-  //           dueDate: "dueDateTest",
-  //           priority: "priorityTest",
-  //         },
-  //       ];
-  //     }
-  //   }
+
   console.log(projectList);
-  // {
-  //   title: titleTest,
-  //   description: descriptionTest,
-  //   dueDate: dueDateTest,
-  //   priority: priorityTest.value,
-  // },
 };
 
 const setCategoryTitle = () => {

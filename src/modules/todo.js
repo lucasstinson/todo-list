@@ -138,6 +138,7 @@ const setTodo = (e) => {
   let description = domForm.children[1].children[1].value;
   let dueDate = domForm.children[2].children[1].value;
   let priority = document.querySelector('input[type="radio"]:checked');
+  let completed = "Open";
   if (priority == null) {
     priority = "";
   }
@@ -151,11 +152,12 @@ const setTodo = (e) => {
         description: description,
         dueDate: dueDate,
         priority: priority.value,
+        status: completed,
       });
     }
   }
   console.log(projectList);
-  addTask(title, description, dueDate, priority.value);
+  addTask(title, description, dueDate, priority.value, completed);
   document.querySelector("#title").value = "";
   document.querySelector("#description").value = "";
   document.querySelector("#due-date").value = "";
