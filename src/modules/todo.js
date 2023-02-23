@@ -1,17 +1,7 @@
-export { todo, todoForm };
+export { todoForm };
 import { preventSubmission, cancelTask } from "./tools.js";
-import { taskContainer } from "./taskManager.js";
-
-const todo = () => {
-  let todo = {
-    title: "",
-    description: "",
-    dueDate: "",
-    priority: "",
-  };
-
-  // user input and on click it goes to create to do
-};
+import { addTask } from "./taskManager.js";
+import { projectList } from "./sideBar.js";
 
 const todoForm = () => {
   let form = document.createElement("form");
@@ -130,7 +120,7 @@ const todoForm = () => {
   addButton.id = "add-todo";
   addButton.textContent = "Add";
   addButton.addEventListener("click", preventSubmission);
-  addButton.addEventListener("click", getTodo);
+  addButton.addEventListener("click", setTodo);
   buttonWrapper.appendChild(addButton);
 
   let cancelButton = document.createElement("button");
@@ -138,19 +128,35 @@ const todoForm = () => {
   cancelButton.textContent = "Cancel";
   cancelButton.addEventListener("click", preventSubmission);
   cancelButton.addEventListener("click", cancelTask);
-  cancelButton.addEventListener("click", getTodo);
   buttonWrapper.appendChild(cancelButton);
 };
 
-const getTodo = (e) => {
-  // console.log(e.target.parentElement.parentElement.children[0]);
+const setTodo = (e) => {
+  const active = document.querySelector(".category.active");
   let domForm = e.target.parentElement.parentElement.children[0];
-  let titleTest = domForm.children[0].children[1].value;
-  let descriptionTest = domForm.children[1].children[1].value;
-  let dueDateTest = domForm.children[2].children[1].value;
-  let priorityTest = document.querySelector('input[type="radio"]:checked');
-  if (priorityTest == null) {
-    priorityTest = "";
+  let title = domForm.children[0].children[1].value;
+  let description = domForm.children[1].children[1].value;
+  let dueDate = domForm.children[2].children[1].value;
+  let priority = document.querySelector('input[type="radio"]:checked');
+  if (priority == null) {
+    priority = "";
   }
-  console.table(titleTest, descriptionTest, dueDateTest, priorityTest.value);
+  console.table(title, description, dueDate, priority.value);
+
+  // This is how you add a task to a project
+  for (let i = 0; i < projectList.length; i++) {
+    if (projectList[i].title == active.childNodes[1].textContent) {
+      projectList[i].tasks.push({
+        title: title,
+        description: description,
+        dueDate: dueDate,
+        priority: priority.value,
+      });
+    }
+  }
+  console.log(projectList);
+  addTask(title, description, dueDate, priority.value);
+  document.querySelector("#title").value = "";
+  document.querySelector("#description").value = "";
+  document.querySelector("#due-date").value = "";
 };

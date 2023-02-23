@@ -1,4 +1,3 @@
-import { todo } from "./todo.js";
 import { enterKeyPressed } from "./tools.js";
 
 const createSearchBar = () => {

@@ -1,5 +1,21 @@
 export { createSideBar, addProject };
 import { preventSubmission, cancelProject } from "./tools.js";
+import { displayTasks, enterTask } from "./taskManager.js";
+export { projectList };
+
+let projectList = [
+  {
+    title: "New Project",
+    tasks: [
+      {
+        title: "Test Task",
+        description: "Description for a test task",
+        dueDate: "2012-12-21",
+        priority: "Low",
+      },
+    ],
+  },
+];
 
 const body = document.querySelector("body");
 
@@ -14,6 +30,7 @@ const createSideBar = () => {
   allTodoWrapper.id = "all-todo-wrapper";
   allTodoWrapper.addEventListener("click", toggleSelected);
   allTodoWrapper.addEventListener("click", hideAddTask);
+  allTodoWrapper.addEventListener("click", displayTasks);
   sideBar.appendChild(allTodoWrapper);
 
   const allTodoImage = document.createElement("img");
@@ -24,6 +41,7 @@ const createSideBar = () => {
   const allTodos = document.createElement("div");
   allTodos.classList = "all-todo-items";
   allTodos.textContent = "All";
+
   allTodoWrapper.appendChild(allTodos);
 
   const todayTodoWrapper = document.createElement("div");
@@ -31,6 +49,7 @@ const createSideBar = () => {
   todayTodoWrapper.id = "today-todo-wrapper";
   todayTodoWrapper.addEventListener("click", toggleSelected);
   todayTodoWrapper.addEventListener("click", hideAddTask);
+  todayTodoWrapper.addEventListener("click", displayTasks);
   sideBar.appendChild(todayTodoWrapper);
 
   const todayTodoImage = document.createElement("img");
@@ -48,6 +67,7 @@ const createSideBar = () => {
   upcomingTodoWrapper.id = "upcoming-todo-wrapper";
   upcomingTodoWrapper.addEventListener("click", toggleSelected);
   upcomingTodoWrapper.addEventListener("click", hideAddTask);
+  upcomingTodoWrapper.addEventListener("click", displayTasks);
   sideBar.appendChild(upcomingTodoWrapper);
 
   const upcomingTodoImage = document.createElement("img");
@@ -205,6 +225,30 @@ const addProject = (e) => {
   }
   newProject.textContent = inputValue;
   projectWrapper.appendChild(newProject);
+
+  projectList.push({ title: inputValue, tasks: [] });
+
+  console.log(projectList);
+  // This is how you add a task to a project
+  //   for (let i = 0; i < projectList.length; i++) {
+  //     if (projectList[i].title == inputValue) {
+  //       projectList[i].tasks = [
+  //         {
+  //           title: "titleTest",
+  //           description: "descriptionTest",
+  //           dueDate: "dueDateTest",
+  //           priority: "priorityTest",
+  //         },
+  //       ];
+  //     }
+  //   }
+  console.log(projectList);
+  // {
+  //   title: titleTest,
+  //   description: descriptionTest,
+  //   dueDate: dueDateTest,
+  //   priority: priorityTest.value,
+  // },
 };
 
 const setCategoryTitle = () => {
@@ -213,13 +257,24 @@ const setCategoryTitle = () => {
   categoryTitle.textContent = selectedCategory.children[1].textContent;
 };
 
-const seeAddTask = (e) => {
-  console.log(e.target);
-  const addTask = document.querySelector(".add-task-wrapper");
-  addTask.style.visibility = "visible";
+const seeAddTask = () => {
+  if (document.querySelector(".add-task-wrapper") != null) {
+    const addTask = document.querySelector(".add-task-wrapper");
+    addTask.style.visibility = "visible";
+  }
+  if (document.querySelector("#to-do-form") != null) {
+    const todoForm = document.querySelector("#to-do-form");
+    todoForm.style.visibility = "visible";
+  }
 };
 
-const hideAddTask = (e) => {
-  const addTask = document.querySelector(".add-task-wrapper");
-  addTask.style.visibility = "hidden";
+const hideAddTask = () => {
+  if (document.querySelector(".add-task-wrapper") != null) {
+    const addTask = document.querySelector(".add-task-wrapper");
+    addTask.style.visibility = "hidden";
+  }
+  if (document.querySelector("#to-do-form") != null) {
+    const todoForm = document.querySelector("#to-do-form");
+    todoForm.style.visibility = "hidden";
+  }
 };

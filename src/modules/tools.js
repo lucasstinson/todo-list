@@ -17,6 +17,7 @@ const cancelTask = () => {
   const form = document.querySelector("#to-do-form");
   const taskContainer = document.querySelector(".task-container");
   taskContainer.replaceChild(addTask, form);
+  addTask.style.visibility = "visible";
 };
 
 const cancelProject = (e) => {
