@@ -1,36 +1,41 @@
-export { createSideBar, addProject };
+export { createSideBar, addProject, displayProjects };
 import { preventSubmission, cancelProject } from "./tools.js";
 import { displayTasks, enterTask } from "./taskManager.js";
 export { projectList };
-
-let projectList = [
-  {
-    title: "New Project",
-    tasks: [
-      {
-        title: "Low Priority",
-        description: "Description for a test task",
-        dueDate: "2012-12-21",
-        priority: "Low",
-        status: "Open",
-      },
-      {
-        title: "High Priority",
-        description: "Description for a test task",
-        dueDate: "2023-02-22",
-        priority: "High",
-        status: "Closed",
-      },
-      {
-        title: "Med Priority",
-        description: "Description for a test task",
-        dueDate: "2023-06-20",
-        priority: "Medium",
-        status: "Open",
-      },
-    ],
-  },
-];
+let projectList = [];
+if (sessionStorage.getItem("tasks") === null) {
+  projectList = [
+    {
+      title: "New Project",
+      tasks: [
+        {
+          title: "Low Priority",
+          description: "Description for a test task",
+          dueDate: "2012-12-21",
+          priority: "Low",
+          status: "Open",
+        },
+        {
+          title: "High Priority",
+          description: "Description for a test task",
+          dueDate: "2023-02-23",
+          priority: "High",
+          status: "Closed",
+        },
+        {
+          title: "Med Priority",
+          description: "Description for a test task",
+          dueDate: "2023-06-20",
+          priority: "Medium",
+          status: "Open",
+        },
+      ],
+    },
+  ];
+} else {
+  const tasksFromStorage = JSON.parse(sessionStorage.getItem("tasks"));
+  projectList = tasksFromStorage;
+}
 
 const body = document.querySelector("body");
 
@@ -129,24 +134,26 @@ const createSideBar = () => {
   newProjectWrapper.classList = "new-project-wrapper";
   sideBar.appendChild(newProjectWrapper);
 
-  const projectWrapper = document.createElement("div");
-  projectWrapper.classList = "category";
-  projectWrapper.id = "project-wrapper";
-  projectWrapper.dataset.project = "0";
-  projectWrapper.addEventListener("click", toggleSelected);
-  projectWrapper.addEventListener("click", seeAddTask);
-  projectWrapper.addEventListener("click", displayTasks);
-  newProjectWrapper.appendChild(projectWrapper);
+  displayProjects();
 
-  const projectImage = document.createElement("img");
-  projectImage.classList = "project-image";
-  projectImage.src = "../dist/images/project.png";
-  projectWrapper.appendChild(projectImage);
+  // const projectWrapper = document.createElement("div");
+  // projectWrapper.classList = "category";
+  // projectWrapper.id = "project-wrapper";
+  // projectWrapper.dataset.project = "0";
+  // projectWrapper.addEventListener("click", toggleSelected);
+  // projectWrapper.addEventListener("click", seeAddTask);
+  // projectWrapper.addEventListener("click", displayTasks);
+  // newProjectWrapper.appendChild(projectWrapper);
 
-  const newProject = document.createElement("div");
-  newProject.classList = "new-project";
-  newProject.textContent = "New Project";
-  projectWrapper.appendChild(newProject);
+  // const projectImage = document.createElement("img");
+  // projectImage.classList = "project-image";
+  // projectImage.src = "../dist/images/project.png";
+  // projectWrapper.appendChild(projectImage);
+
+  // const newProject = document.createElement("div");
+  // newProject.classList = "new-project";
+  // newProject.textContent = "New Project";
+  // projectWrapper.appendChild(newProject);
 };
 
 const adjustProjects = () => {
@@ -165,9 +172,14 @@ const adjustProjects = () => {
 };
 
 const toggleSelected = (e) => {
-  const active = document.querySelector(".side-bar-wrapper .category.active");
-  active.classList.remove("active");
-  addSelected(e);
+  if (document.querySelector(".side-bar-wrapper .category.active")) {
+    const active = document.querySelector(".side-bar-wrapper .category.active");
+    active.classList.remove("active");
+    addSelected(e);
+  }
+  // const active = document.querySelector(".side-bar-wrapper .category.active");
+  // active.classList.remove("active");
+  // addSelected(e);
 };
 
 const addSelected = (e) => {
@@ -246,8 +258,6 @@ const addProject = (e) => {
   projectList.push({ title: inputValue, tasks: [] });
 
   console.log(projectList);
-
-  console.log(projectList);
 };
 
 const setCategoryTitle = () => {
@@ -275,5 +285,34 @@ const hideAddTask = () => {
   if (document.querySelector("#to-do-form") != null) {
     const todoForm = document.querySelector("#to-do-form");
     todoForm.style.visibility = "hidden";
+  }
+};
+
+const displayProjects = () => {
+  const newProjectWrapper = document.querySelector(".new-project-wrapper");
+  for (let i = 0; i < projectList.length; i++) {
+    let projectTitle = projectList[i].title;
+    const projectWrapper = document.createElement("div");
+    projectWrapper.classList = "category";
+    projectWrapper.id = "project-wrapper";
+    projectWrapper.dataset.project = i;
+    projectWrapper.addEventListener("click", toggleSelected);
+    projectWrapper.addEventListener("click", seeAddTask);
+    projectWrapper.addEventListener("click", displayTasks);
+    newProjectWrapper.appendChild(projectWrapper);
+
+    const projectImage = document.createElement("img");
+    projectImage.classList = "project-image";
+    projectImage.src = "../dist/images/project.png";
+    projectWrapper.appendChild(projectImage);
+
+    const newProject = document.createElement("div");
+    newProject.classList = "new-project";
+
+    if (projectTitle == "") {
+      projectTitle = "Project " + (i + 1);
+    }
+    newProject.textContent = projectTitle;
+    projectWrapper.appendChild(newProject);
   }
 };

@@ -202,10 +202,32 @@ const addTask = (title, description, dueDate, priority, completed) => {
   taskDate.textContent = dueDate;
   taskWrapper.appendChild(taskDate);
 
+  const taskDelete = document.createElement("img");
+  taskDelete.classList = "task-delete";
+  taskDelete.src = "../dist/images/trash-can.png";
+  taskDelete.addEventListener("click", removeTask);
+  taskWrapper.appendChild(taskDelete);
+
   if (completed == "Closed") {
     taskWrapper.children[0].children[0].classList = "complete-button checked";
     taskWrapper.style.textDecoration = "line-through";
     taskWrapper.style.opacity = "0.5";
     taskWrapper.children[0].children[0].checked = true;
+  }
+  sessionStorage.setItem("tasks", JSON.stringify(projectList));
+};
+
+const removeTask = (e) => {
+  for (let i = 0; i < projectList.length; i++) {
+    for (let j = 0; j < projectList[i].tasks.length; j++) {
+      let title = projectList[i].tasks[j].title;
+      let currentTaskTitle = e.target.parentNode.childNodes[1].textContent;
+      if (currentTaskTitle == title) {
+        projectList[i].tasks.splice(j, 1);
+        sessionStorage.setItem("tasks", JSON.stringify(projectList));
+        break;
+      }
+    }
+    displayTasks();
   }
 };

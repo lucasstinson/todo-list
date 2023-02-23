@@ -2,7 +2,7 @@ import { createSearchBar } from "./modules/searchBar.js";
 import { createSideBar } from "./modules/sideBar.js";
 import { taskContainer, displayTasks } from "./modules/taskManager.js";
 import { todoForm } from "./modules/todo.js";
-import { projectList } from "./modules/sideBar.js";
+import { projectList, displayProjects } from "./modules/sideBar.js";
 
 createSearchBar();
 createSideBar();
