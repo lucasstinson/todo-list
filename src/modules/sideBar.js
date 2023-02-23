@@ -223,6 +223,7 @@ const addProject = (e) => {
   projectWrapper.dataset.project = newProjectWrapper.childElementCount;
   projectWrapper.addEventListener("click", toggleSelected);
   projectWrapper.addEventListener("click", seeAddTask);
+  projectWrapper.addEventListener("click", displayTasks);
   newProjectWrapper.appendChild(projectWrapper);
 
   const projectImage = document.createElement("img");
