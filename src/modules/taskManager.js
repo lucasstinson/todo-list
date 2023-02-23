@@ -1,7 +1,7 @@
-import { compareAsc, format } from "../../node_modules/date-fns";
 export { taskContainer, enterTask, addTask, displayTasks };
 import { todoForm } from "./todo.js";
 import { projectList } from "./sideBar.js";
+
 const taskContainer = () => {
   const body = document.querySelector("body");
 
@@ -84,18 +84,31 @@ const displayTasks = () => {
       }
     }
   } else if (selectedCategory.id == "today-todo-wrapper") {
+    let todayDate = new Date().toISOString().split("T")[0];
     for (let i = 0; i < projectList.length; i++) {
       for (let j = 0; j < projectList[i].tasks.length; j++) {
         let title = projectList[i].tasks[j].title;
         let description = projectList[i].tasks[j].description;
         let dueDate = projectList[i].tasks[j].dueDate;
         let priority = projectList[i].tasks[j].priority;
-        // if dueDate =
-        addTask(title, description, dueDate, priority);
+        if (dueDate == todayDate) {
+          addTask(title, description, dueDate, priority);
+        }
       }
     }
   } else if (selectedCategory.id == "upcoming-todo-wrapper") {
-    console.log("END Me");
+    let todayDate = new Date().toISOString().split("T")[0];
+    for (let i = 0; i < projectList.length; i++) {
+      for (let j = 0; j < projectList[i].tasks.length; j++) {
+        let title = projectList[i].tasks[j].title;
+        let description = projectList[i].tasks[j].description;
+        let dueDate = projectList[i].tasks[j].dueDate;
+        let priority = projectList[i].tasks[j].priority;
+        if (dueDate >= todayDate) {
+          addTask(title, description, dueDate, priority);
+        }
+      }
+    }
   }
 };
 

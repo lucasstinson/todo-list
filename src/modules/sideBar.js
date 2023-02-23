@@ -8,10 +8,22 @@ let projectList = [
     title: "New Project",
     tasks: [
       {
-        title: "Test Task",
+        title: "Low Priority Task",
         description: "Description for a test task",
         dueDate: "2012-12-21",
         priority: "Low",
+      },
+      {
+        title: "High Priority Task",
+        description: "Description for a test task",
+        dueDate: "2023-02-23",
+        priority: "High",
+      },
+      {
+        title: "Medium Priority Task",
+        description: "Description for a test task",
+        dueDate: "2023-06-20",
+        priority: "Medium",
       },
     ],
   },
