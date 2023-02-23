@@ -55,7 +55,7 @@ const createSideBar = () => {
 
   const allTodoImage = document.createElement("img");
   allTodoImage.classList = "all-todo-image";
-  allTodoImage.src = "./images/inbox.png";
+  allTodoImage.src = "../dist/images/inbox.png";
   allTodoWrapper.appendChild(allTodoImage);
 
   const allTodos = document.createElement("div");
