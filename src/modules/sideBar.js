@@ -55,7 +55,7 @@ const createSideBar = () => {
 
   const allTodoImage = document.createElement("img");
   allTodoImage.classList = "all-todo-image";
-  allTodoImage.src = "../dist/images/inbox.png";
+  allTodoImage.src = "images/inbox.png";
   allTodoWrapper.appendChild(allTodoImage);
 
   const allTodos = document.createElement("div");
@@ -74,7 +74,7 @@ const createSideBar = () => {
 
   const todayTodoImage = document.createElement("img");
   todayTodoImage.classList = "today-todo-image";
-  todayTodoImage.src = "../dist/images/today.png";
+  todayTodoImage.src = "images/today.png";
   todayTodoWrapper.appendChild(todayTodoImage);
 
   const todayTodos = document.createElement("div");
@@ -92,7 +92,7 @@ const createSideBar = () => {
 
   const upcomingTodoImage = document.createElement("img");
   upcomingTodoImage.classList = "upcoming-todo-image";
-  upcomingTodoImage.src = "../dist/images/upcoming.png";
+  upcomingTodoImage.src = "images/upcoming.png";
   upcomingTodoWrapper.appendChild(upcomingTodoImage);
 
   const upcomingTodos = document.createElement("div");
@@ -116,7 +116,7 @@ const createSideBar = () => {
 
   const projectsImage = document.createElement("img");
   projectsImage.classList = "projects-image";
-  projectsImage.src = "../dist/images/projects.png";
+  projectsImage.src = "images/projects.png";
   adjustableWrapper.appendChild(projectsImage);
 
   const projects = document.createElement("div");
@@ -135,25 +135,6 @@ const createSideBar = () => {
   sideBar.appendChild(newProjectWrapper);
 
   displayProjects();
-
-  // const projectWrapper = document.createElement("div");
-  // projectWrapper.classList = "category";
-  // projectWrapper.id = "project-wrapper";
-  // projectWrapper.dataset.project = "0";
-  // projectWrapper.addEventListener("click", toggleSelected);
-  // projectWrapper.addEventListener("click", seeAddTask);
-  // projectWrapper.addEventListener("click", displayTasks);
-  // newProjectWrapper.appendChild(projectWrapper);
-
-  // const projectImage = document.createElement("img");
-  // projectImage.classList = "project-image";
-  // projectImage.src = "../dist/images/project.png";
-  // projectWrapper.appendChild(projectImage);
-
-  // const newProject = document.createElement("div");
-  // newProject.classList = "new-project";
-  // newProject.textContent = "New Project";
-  // projectWrapper.appendChild(newProject);
 };
 
 const adjustProjects = () => {
@@ -243,7 +224,7 @@ const addProject = (e) => {
 
   const projectImage = document.createElement("img");
   projectImage.classList = "project-image";
-  projectImage.src = "../dist/images/project.png";
+  projectImage.src = "images/project.png";
   projectWrapper.appendChild(projectImage);
 
   const newProject = document.createElement("div");
@@ -303,7 +284,7 @@ const displayProjects = () => {
 
     const projectImage = document.createElement("img");
     projectImage.classList = "project-image";
-    projectImage.src = "../dist/images/project.png";
+    projectImage.src = "images/project.png";
     projectWrapper.appendChild(projectImage);
 
     const newProject = document.createElement("div");
