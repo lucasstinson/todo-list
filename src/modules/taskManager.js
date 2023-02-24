@@ -204,7 +204,7 @@ const addTask = (title, description, dueDate, priority, completed) => {
 
   const taskDelete = document.createElement("img");
   taskDelete.classList = "task-delete";
-  taskDelete.src = "../dist/images/trash-can.png";
+  taskDelete.src = "images/trash-can.png";
   taskDelete.addEventListener("click", removeTask);
   taskWrapper.appendChild(taskDelete);
 

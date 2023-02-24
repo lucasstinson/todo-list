@@ -147,7 +147,8 @@ body {
 }
 
 .expand-arrow {
-  padding: 9px 12px 0px 12px;
+  font-size: 40px;
+  padding-left: 5px;
 }
 
 .expand-arrow:hover {

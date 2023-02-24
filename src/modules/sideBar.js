@@ -111,7 +111,7 @@ const createSideBar = () => {
 
   const expandArrow = document.createElement("div");
   expandArrow.classList = "expand-arrow";
-  expandArrow.textContent = "⮟";
+  expandArrow.textContent = "⇓";
   adjustableWrapper.appendChild(expandArrow);
 
   const projectsImage = document.createElement("img");
@@ -141,12 +141,12 @@ const adjustProjects = () => {
   const expandArrow = document.querySelector(".expand-arrow");
   const newProjectWrapper = document.querySelector(".new-project-wrapper");
   const addProjects = document.querySelector(".projects-add");
-  if (expandArrow.textContent == "⮟") {
-    expandArrow.textContent = "⮞";
+  if (expandArrow.textContent == "⇓") {
+    expandArrow.textContent = "⇒";
     newProjectWrapper.style.visibility = "hidden";
     addProjects.style.visibility = "hidden";
-  } else if (expandArrow.textContent == "⮞") {
-    expandArrow.textContent = "⮟";
+  } else if (expandArrow.textContent == "⇒") {
+    expandArrow.textContent = "⇓";
     newProjectWrapper.style.visibility = "visible";
     addProjects.style.visibility = "visible";
   }

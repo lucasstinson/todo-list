@@ -21,7 +21,7 @@ const createSearchBar = () => {
 
   let magnifyingGlass = document.createElement("img");
   magnifyingGlass.classList = "magnifying-glass";
-  magnifyingGlass.src = "../dist/images/magnifying-glass.png";
+  magnifyingGlass.src = "images/magnifying-glass.png";
   searchBarWrapper.appendChild(magnifyingGlass);
 
   let searchInput = document.createElement("input");
